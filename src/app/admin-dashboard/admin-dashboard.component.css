@@ -1,0 +1,107 @@
+.main_content {
+    padding: 64px 30px 30px;
+    background: #fff;
+    border-left: 1px solid transparent;
+    margin-left: 240px;
+}
+
+.ov_boxes {
+    width: 100%;
+    list-style: none;
+    display: inline-block;
+    margin: 0 0 -20px;
+    text-align: left;
+}
+
+.ov_boxes li {
+    box-shadow: inset 0px 1px 0px 0px #fff;
+    line-height: 18px;
+    background: #f9f9f9;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#ededed));
+    display: inline-block;
+    margin: 0 10px 10px;
+    border-radius: 4px;
+    width: 20%;
+}
+
+.ov_boxes .p_canvas {
+    margin-right: 12px;
+    float: left;
+    border-right: 1px solid #dcdcdc;
+    box-shadow: 1px 0 0 0 #fff;
+    padding: 10px 14px 6px 4px;
+}
+
+.ov_boxes .ov_text {
+    text-align: left;
+    width: 105px;
+    font-size: 12px;
+    float: left;
+    padding: 9px 10px 7px 0;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.ov_boxes .ov_text strong {
+    font-size: 16px;
+    display: block;
+}
+
+.dshb_icoNav li {
+    box-shadow: inset 0px 1px 0px 0px #fff;
+    text-align: center;
+    list-style: none;
+    display: inline-block;
+    margin: 0 5px 10px;
+    background: -webkit-linear-gradient(top, #f9f9f9 0%,#efefef 100%);
+    border: 1px solid #e2e2e2;
+    border-radius: 6px;
+}
+
+.dshb_icoNav li a {
+    position: relative;
+    display: block;
+    padding: 42px 8px 8px;
+    width: 88px;
+    height: 22px;
+    font-size: 12px;
+    color: #222;
+    background-repeat: no-repeat;
+    background-position: center 10px;
+    text-shadow: 1px 1px 0 #fff;
+}
+
+.global a {
+    color:#f5b466;
+   
+    float: right;
+    margin-right: 5px
+}
+
+li.global {
+    padding: 2px;
+    border-bottom: 1px solid #d07f1b29;
+}
+
+.globalDriver{
+    height: 80px;
+    overflow: scroll;
+    overflow-x: overlay;
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background:#f5b466; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

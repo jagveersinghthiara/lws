@@ -1,0 +1,54 @@
+
+
+<div  class="col-md-9 topspace">
+    <div class="main_content">
+        
+        <div class="sb_title">
+            <h3> Driver Schedule</h3>
+
+        </div>
+               <ngx-tabset (onSelect)="load($event)">
+            <ngx-tab tabTitle="{{tab.title}}" *ngFor ="let tab of tabBar;let i = index" [active]="i == 0">
+                <div class="tab-pane active">
+                    <div class="row-fluid">
+<div >
+<table class="table" >
+    <thead>
+        <tr>
+            <th style ="display:none">Id</th>
+            <th>S.No </th>
+            <th>Load Term </th>
+            <th>Pick Up Address </th>
+            <th>Drop Address </th>
+            <th>Distance </th>
+            <th>Pick Up Time </th>
+            <th>Drop Time </th>
+            <th>Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let load of loadData; let i = index">
+            <td style ="display:none">{{load.loadDetail.id}} </td>
+            <td>{{i + 1}} </td>
+            <td>{{load.loadDetail.loadTerm}} </td>
+            <td>{{load.loadDetail.pickUpAddress}} </td>
+            <td>{{load.loadDetail.dropAddress}} </td>
+            <td>{{load.loadDetail.distance}} </td>
+            <td>{{load.loadDetail.pickUpTime*1000 | date : 'dd/MM/yyyy h:mm a'}} </td>
+
+            <td>{{load.loadDetail.dropTime*1000 | date  : 'dd/MM/yyyy h:mm a'}} </td>
+            <td class="pdf "> 
+                <a [routerLink]="['/load/basicEdit', load.loadDetail.id]" title="View Details"><i class="glyphicon glyphicon-eye-open"></i></a>
+        
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</div>
+            </div>
+            </ngx-tab>
+          </ngx-tabset>
+
+    </div>
+</div>

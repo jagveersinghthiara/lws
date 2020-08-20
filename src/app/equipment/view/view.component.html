@@ -1,0 +1,67 @@
+<div  class="col-md-9 topspace">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
+
+            </ngx-spinner>
+        <div class="main_content">
+            
+            <div class="sb_title">
+                <h3> Equipment List  <a class="add_btn" [routerLink]="'/equipment/add'"> <i class="glyphicon glyphicon-plus"></i> Add Equipment</a></h3>
+                
+            </div>
+                
+    <div >
+    <table class="table" >
+        <thead>
+            <tr>
+                <th style="display:none">Id</th>
+                <th>S.No </th>
+                <th>Name </th>
+                <th>Image </th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let equipment of equipmentsData; let i = index">
+                <td style="display:none">{{equipment.id}} </td>
+                <td>{{i + 1}} </td>
+                <td>  {{equipment.name}}</td>
+                <td *ngIf='!equipment.image'> Image not Avalible </td>
+
+                <td *ngIf='equipment.image'> <img height="30px" src='{{imagesUrl}}{{equipment.image}}' alt='broken image' > </td>
+                <td class="pdf "> 
+                    <a [routerLink]="['/equipment/edit', equipment.id]"  title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a  (click)="deleteEquipment(equipment.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-md-9">
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+                <a [routerLink]="['/equipment/view/']" [queryParams]="{ page: 1 }" class="page-link">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+                <a [routerLink]="['/equipment/view/']" [queryParams]="{ page: pager.currentPage - 1 }"
+                  class="page-link">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+                class="page-item number-item">
+                <a [routerLink]="['/equipment/view/']" [queryParams]="{ page: page }"
+                  class="page-link">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+                <a [ngClass]="{disabled:pager.currentPage === pager.totalPages}"
+                  [routerLink]="['/equipment/view/']" [queryParams]="{ page: pager.currentPage + 1 }"
+                  class="page-link">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+                <a [routerLink]="['/equipment/view/']" [queryParams]="{ page: pager.totalPages }"
+                  class="page-link">Last</a>
+              </li>
+            </ul>
+          </div>
+    </div>
+    
+    
+        </div>
+    </div>

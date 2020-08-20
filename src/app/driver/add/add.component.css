@@ -1,0 +1,31 @@
+.topspace {
+	margin-top: 20px;
+    margin-left: 250px;
+}
+.fomr_section form {
+    padding: 22px 35px;
+     margin-top: 19px;
+ }
+ .btn_back {
+      margin-top: 0px; 
+ }
+ .form-group {
+     margin-bottom: 10px;
+ }
+
+ /* .equipment
+    {
+        height: 200px;
+        overflow-y: scroll;
+    
+ } */
+ /* .equip{
+    width: 16%;
+ } */
+
+ /* .equipName{
+    padding: 8px
+ } */
+ select[multiple], select[size] {
+    height: 160PX;
+}

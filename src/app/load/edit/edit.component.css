@@ -1,0 +1,342 @@
+.topspace {
+	margin-top: 20px;
+    margin-left: 250px;
+}
+.pdf_view {
+	padding: 30px 30px;
+	background: #f1f1f1;
+	float: left;
+	width: 100%;
+	box-sizing: border-box;
+	margin-top: 40px;
+}
+
+.add_field {
+	background: #fbb565;
+	color: #333;
+	border: navajowhite;
+	padding: 4px 8px;
+	margin-top: 10px;
+	float: right;
+}
+.dlvr_status td {
+	background: #fff;
+	padding: 10px;
+	border: 1px solid #ddd;
+	box-shadow: 0px 0px 7px #ddd;
+	min-width: 25%;
+}
+.fity {
+	width: 100%;
+	display: table-cell;
+}
+.dlvr_status {
+	width: 100%;
+	font-weight: bold;
+}
+.dlvr_status b {
+	font-size: 14px;
+}
+.dlver {
+	background: green !important;
+	color: #fff;
+	float: left;
+	width: 100%;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+.pendg {
+	background: red !important;
+	color: #fff;
+	float: left;
+	width: 100%;
+	font-size: 12px;
+	padding: 10px;
+	border-radius: 5px;
+	box-sizing: border-box;
+}
+.norml_status {
+	color: #000;
+	float: left;
+	font-size: 12px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	background: #f1f1f1;
+}
+.numberss {
+	float: left;
+	width: 48%;
+	background: #f1f1f1;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+}
+.pdf_view.load_list_view {
+    padding: 5px;
+	margin: 0px;
+}
+
+.numberss h4 span {
+	float: right;
+	width: 100%;
+	font-size: 15px;
+	line-height: 23px;
+}
+.numberss h4 {
+	padding: 5px 7px;
+	font-size: 11px;
+	font-weight: normal;
+}
+.numberss h4 span input {
+	float: right;
+	height: 19px;
+	width: 100%;
+	padding: 0;
+	border: 1px solid #fbb565;
+	margin: 3px 0px;
+}
+.cards_design {
+	width: 99%;
+	background: #fff;
+	padding: 5px;
+	vertical-align: top;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px #ddd;
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 1%;
+	margin-top: 15px;
+}
+.load_list_view h2 a {
+	float: right;
+}
+
+.load_list_view h2 {
+	padding: 0px 6px;
+	font-size: 13px;
+	text-transform: uppercase;
+	margin-bottom: 5px;
+	line-height: 23px;
+	color: #333;
+	font-weight: bold;
+}
+.cards_design_fifty {
+	width: 45%;
+	background: #fff;
+	padding: 5px;
+	vertical-align: top;
+	border-radius: 5px;
+	box-shadow: 0px 0px 3px #ddd;
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 1%;
+	margin-top: 15px;
+}
+.route_paln h2 {
+	font-weight: normal;
+	text-transform: initial;
+	font-size: 12px;
+}
+.load_list_view.pdf_view h3 {
+	font-size: 11px;
+	font-weight: normal;
+	margin-bottom: 0px;
+	border-bottom: 1px solid #ddd;
+	padding: 0px 10px;
+	line-height: 26px;
+	box-sizing: border-box;
+	float: left;
+	width: 100%;
+}
+.load_list_view.pdf_view h3 span {
+	width: 55%;
+	float: right;
+	text-align: left;
+	font-size: 10px;
+	font-weight: bold;
+}
+.inr_tbl{
+	width:100%;
+}
+.inr_tbl tr td {
+	padding: 4px;
+	font-size: 11px;
+}
+
+.inr_tbl tr  {
+	border-bottom: 1px solid #ddd;
+}
+.route_paln {
+	float: left;
+	width: 50%;
+	text-align: center;
+}
+.load_list_view h2 a img {
+	width: 21px;
+}
+.route_paln h5 {
+	font-size: 12px;
+	color: #fbb565;
+	line-height: 17px;
+	margin-top: 10px;
+}
+.route_paln h6 span {
+	width: 100%;
+	float: left;
+	font-size: 12px;
+	margin-top: 3px;
+}
+.route_paln h6 {
+	color: green;
+	line-height: 13px;
+	margin-top: 10px;
+	font-size: 13px;
+}
+.route_paln b {
+	font-size: 18px;
+	background: #f1f1f1;
+	display: inline-block;
+	padding: 8px;
+	border-radius: 3px;
+}
+.route_paln b small {
+	font-size: 12px;
+}
+.dcs {
+	float: left;
+	width: 25%;
+	font-size: 12px;
+	padding: 10px 3px;
+}.notes p {
+	font-size: 12px;
+}
+.notes {
+	max-height: 115px;
+	overflow-y: auto;
+}
+.cards_design select {
+	float: right ;
+	width: 114px ;
+	height: 25px ;
+	padding: 0px ;
+}
+.btn_stuts a {
+	float: left;
+	width: 43%;
+	background: green;
+	color: #fff;
+	text-align: center;
+	padding: 4px 4px;
+	border-radius: 7px;
+	margin: 2%;
+	font-weight: bold;
+	font-size: 11px;
+	margin-bottom: 0px;
+}
+.can_get {
+	float: left;
+	width: 50%;
+	padding: 7px;
+	box-sizing: border-box;
+}
+.can_get input {
+	height: auto;
+	width: auto;
+	margin-right: 6px;
+}
+
+.aButton {
+    float: right;
+    background: #f5b466;
+    padding: 4px;
+    border: red;
+    color: #fff;
+    width: 47px;
+    text-align: center;
+
+}
+
+.button{
+	margin: 0px 4px;
+	float: right;
+    background: #f5b466;
+    padding: 4px;
+    border: red;
+    color: #fff;
+    text-align: center;
+}
+
+.gap{
+	float: right;
+	width: 5px;
+}
+
+
+.chat_page button {
+    padding: 10px 30px;
+    text-align: center;
+    height: 40px;
+    display: inline-block;
+    background: #fbb565;
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.chat_page textarea {
+    width: 100%;
+    background: transparent;
+    float: left;
+    height: 90px;
+}
+.chat_page {
+    text-align: center;
+    padding: 10px;
+}
+.chat_list h5 {
+    font-size: 15px !important;
+    text-transform: initial;
+}
+.chat_list p {
+    margin-top: 2px;
+    width: 100%;
+    text-align: right;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: initial;
+}
+.chat_list p b {
+    font-weight: 600;
+    font-size: 11px;
+}
+.chat_list {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    background: #e2e2e2;
+    padding: 10px;
+}
+.chat_on {
+    width: 100%;
+    padding: 10px;
+    float: left;
+    max-height: 200px;
+    overflow-x: auto;
+}
+p.date {
+    color: #171515;
+    font-style: italic;
+    font-size: 10px !important;
+}
+
+b.delete {
+    color: red;
+	float: right;
+	height: 1px;
+}

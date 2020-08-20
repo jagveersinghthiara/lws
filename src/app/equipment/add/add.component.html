@@ -1,0 +1,73 @@
+<section>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
+
+      </ngx-spinner>
+<div class="col-md-9 topspace"> 
+    <div class="content">
+            <div class="col-md-12">
+                <div class="fomr_section">
+                    <h3 class="form_title"> Add Equipment</h3>
+                     <form  [formGroup]="equipmentForm" (ngSubmit)="addEquipment()">
+                     <div class="row-fluid">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                            <label> Equipment Name </label>
+                            <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" formControlName="name" placeholder="Enter Equipment Name">
+                          </div>
+                          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <p class="error-message" *ngIf=" f.name.errors.required">
+                                Name is required!
+                              </p>
+                             
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label> Description </label>
+                          <textarea rows="4" cols="50" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" formControlName="description" placeholder="Description">
+                          
+                            </textarea>
+                        </div>
+                        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                          <p class="error-message" *ngIf=" f.description.errors.required">
+                            Description is required!
+                            </p>
+                           
+                      </div>
+                    </div>
+           
+                      </div>
+                      <div class="row-fluid">
+                          <div class="col-md-6">
+                              <div class="form-group">
+                                  <label> Image </label>
+                          <input type="file" formControlName="tempimage" nbInput fullWidth #file accept='image/*' (change)="preview(file.files)" />
+                          <input type="hidden" formControlName="image" class="form-control" />
+                        </div>
+                        <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+                            <p class="error-message" *ngIf="message">
+                              Valid Image is required!
+                              </p>
+                             
+                        </div>
+                          
+                        </div>
+                        <div class="col-md-6 img">
+                            <div class="form-group">
+                                <label> Image Preview</label>
+                                <img [src]="imgURL" width="auto" height="170">
+                            </div>
+                           
+                    </div>
+                    
+                    </div>
+                      <div class="col-md-12" style="text-align:center;">
+                        <button type="submit " class="btn btn-default btn_back">Add</button>
+                      </div>
+                    </form> 
+                </div>
+            </div>
+</div>
+</div>
+</section>
+

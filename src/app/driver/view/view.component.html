@@ -1,0 +1,67 @@
+<div  class="col-md-9 topspace">
+        <div class="main_content">
+            
+            <div class="sb_title">
+                <h3> Driver List  <a class="add_btn" [routerLink]="'/driver/add'"> <i class="glyphicon glyphicon-plus"></i> Add Driver</a></h3>
+                
+            </div>
+                
+    <div >
+    <table class="table" >
+        <thead>
+            <tr>
+                <th style="display:none">Id</th>
+                <th>Name </th>
+                <th>Email </th>
+                <th>Type </th>
+                <th>Phone </th>
+                <th>Status </th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let driver of driverList; let i = index">
+                <td style="display:none">{{driver.id}} </td>
+                <td>  {{driver.name}}</td>
+                <td>{{driver.email}} </td>
+                <td [ngSwitch]="driver.type">
+                        <span *ngSwitchCase="1">Individual</span>
+                        <span *ngSwitchCase="2">Firm</span>
+                </td>
+        
+                <td>{{driver.phone}} </td>
+                <td [ngSwitch]="driver.driverAvailability">
+                    <span *ngSwitchCase="1">Available</span>
+                    <span *ngSwitchCase="2">Load</span>
+            </td>
+                <td class="pdf"> 
+                        <a [routerLink]="['/driver/viewDetails', driver.id]"  title="View Schedule Details"><i class="glyphicon glyphicon-time"></i></a>
+                    <a [routerLink]="['/driver/edit', driver.id]"  title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a  (click)="deleteDriver(driver.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-md-9">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+                <a [routerLink]="['/driver/view']" [queryParams]="{ page: 1 }" class="page-link">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+                <a [routerLink]="['/driver/view']" [queryParams]="{ page: pager.currentPage - 1 }" class="page-link">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
+                <a [routerLink]="['/driver/view']" [queryParams]="{ page: page }" class="page-link">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+                <a [routerLink]="['/driver/view']" [queryParams]="{ page: pager.currentPage + 1 }" class="page-link">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+                <a [routerLink]="['/driver/view']" [queryParams]="{ page: pager.totalPages }" class="page-link">Last</a>
+            </li>
+        </ul>    </div>
+    </div>
+    
+    
+        </div>
+    </div>

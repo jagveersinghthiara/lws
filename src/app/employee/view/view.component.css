@@ -1,0 +1,20 @@
+.sb_title {
+    float: left;
+    width: 100%;
+}ngx-tabset {
+    float: left;
+}
+
+li.nav-tab {
+    font-size: 11px;
+    min-height: 49px;
+}
+
+a.disabled {
+    pointer-events: none;
+   
+  }
+  li.disabled {
+    pointer-events: none;
+   
+  }

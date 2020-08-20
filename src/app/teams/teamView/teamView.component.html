@@ -1,0 +1,29 @@
+<div  class="col-md-9 topspace">
+    <div class="main_content">
+        
+        <div class="sb_title">
+            <h3> Team  </h3>
+
+        </div>
+        <table class="table" >
+                <thead>
+                    <tr>
+                        <th style="display:none">Id</th>
+                        <th>Name </th>
+                        <th>Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let team of teamData; let i = index">
+                        <td style="display:none">{{team.teamId}} </td>
+                        <td>  {{team.teamName}}</td>
+                        <td class="pdf "> 
+                                <a [routerLink]="['/teams/viewDetail', team.teamId]"  title="View"><i class="glyphicon glyphicon-eye-open"></i></a>
+                           
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+
+    </div>
+</div>

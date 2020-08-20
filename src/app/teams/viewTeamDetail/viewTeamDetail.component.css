@@ -1,0 +1,55 @@
+.topspace {
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
+.full {
+  padding: 14px;
+}
+
+.full .col-md-4 {
+  padding: 4px;
+}
+
+.full .col-md-6 {
+  padding: 4px;
+}
+
+.agents {
+  padding: 2px;
+  color: #000000a3;
+}
+
+label.label {
+  font-size: 10px;
+}
+
+.editbtn {
+  color: white;
+  background: #f5b466;
+  padding: 7px 29px;
+  float: right;
+}
+.teamAgents {
+  padding-left: 30px;
+  background: #f1f1f1;
+}
+.teamAgents label.label {
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px 0px 0px;
+  float: left;
+  width: 100%;
+  text-align: left;
+}
+.full .col-md-6 span {
+  float: left;
+  width: 100%;
+  background: #f1f1f1;
+  padding: 7px 10px;
+}.full .col-md-4 span {
+  background: #f1f1f1;
+  width: 100%;
+  float: left;
+  padding: 7px 10px;
+}

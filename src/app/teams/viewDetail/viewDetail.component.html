@@ -1,0 +1,160 @@
+<section>
+  <div class="col-md-9 topspace">
+    <div class="content">
+      <div class="col-md-12">
+        <div class="fomr_section">
+          <h3 class="form_title"> View Team Details</h3>
+          <form [formGroup]="teamForm" (ngSubmit)="editTeam()">
+            <div class="row-fluid">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label> Team Name : </label> {{name}}
+                </div>
+              </div>
+            </div>
+            <div class="row-fluid">
+            </div>
+            <div class="row-fluid">
+              <div class="managers">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label> Sales Manager </label>
+                    <select formControlName="salesManager" class="form-control">
+                      <option value="">Select</option>
+                      <option value='{{data.id }}' *ngFor='let data of SalesManager'>
+                        {{data.userName}}
+                      </option>
+                    </select>
+                  </div>
+                  <div *ngIf="submitted && f.salesManager.errors" class="invalid-feedback">
+                    <p class="error-message" *ngIf=" f.salesManager.errors.required">
+                      Feild is required!
+                    </p>
+
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label> Dispatcher Manager </label>
+                    <select formControlName="dispatcherManager" class="form-control">
+                      <option value="">Select</option>
+                      <option value='{{data.id}}' *ngFor='let data of DispatcherManager'>
+                        {{data.userName}}
+                      </option>
+                    </select>
+                  </div>
+                  <div *ngIf="submitted && f.dispatcherManager.errors" class="invalid-feedback">
+                    <p class="error-message" *ngIf=" f.dispatcherManager.errors.required">
+                      Feild is required!
+                    </p>
+
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label> Accounting Manager </label>
+                    <select formControlName="accountantManager" class="form-control">
+                      <option value="">Select</option>
+                      <option value='{{data.id}}' *ngFor='let data of AccountingManager'>
+                        {{data.userName}}
+                      </option>
+                    </select>
+                  </div>
+                  <div *ngIf="submitted && f.accountantManager.errors" class="invalid-feedback">
+                    <p class="error-message" *ngIf=" f.accountantManager.errors.required">
+                      Feild is required!
+                    </p>
+
+                  </div>
+                </div>
+              </div>
+              <div class="teamleads">
+
+                <div class="col-md-4 section1">
+                  <div class="form-group">
+                    <div class="rel" formArrayName="units">
+                      <div *ngFor="let unit of teamForm.controls.units.controls; let i=index">
+                        <div [formGroupName]="i">
+                          <label> Sales Team Leader </label>
+                          <select formControlName="salesTL" class="form-control">
+                            <option value="">Select</option>
+                            <option value='{{data.id }}' *ngFor='let data of SalesTeamLeader'>
+                              {{data.userName}}
+                            </option>
+                          </select>
+                          <label> Sales Agent</label>
+                          
+                          <input type="text" class='dis' formControlName="salesAgent"  >
+                          <input type="hidden" formControlName="group">
+                        </div>
+                        <button *ngIf='showCross' type="button" class="close" (click)="remove(i)"> x</button>
+                      </div>
+                      <button type="button" class="button add" (click)="addUnit()"> + </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 section2">
+                  <div class="form-group">
+                    <div class="rel" formArrayName="disptch">
+                      <div *ngFor="let unit of teamForm.controls.disptch.controls; let i=index">
+                        <div [formGroupName]="i">
+                          <label> Dispatch Team Leader </label>
+                          <select formControlName="dispatcherTl" class="form-control">
+                            <option value="">Select</option>
+                            <option value='{{data.id }}' *ngFor='let data of DispatchTeamLeader'>
+                              {{data.userName}}
+                            </option>
+                          </select>
+                          <label> Dispatcher Agent </label>
+                       
+<input type="text"  class='dis' formControlName="dispatcherAgent"  >
+                          <input type="hidden" formControlName="group">
+                        </div>
+                        <button *ngIf='showCrossDes' type="button" class="close" (click)="removeDes(i)"> x</button>
+                      </div>
+                      <button type="button" class="button add" (click)="addDespatch()"> + </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-4 section3">
+                  <div class="form-group">
+                    <div class="rel" formArrayName="account">
+                      <div *ngFor="let unit of teamForm.controls.account.controls; let i=index">
+                        <div [formGroupName]="i">
+                          <label> Account Team Leader </label>
+                          <select formControlName="AccountTl" class="form-control">
+                            <option value="">Select</option>
+                            <option value='{{data.id }}' *ngFor='let data of AccountTeamLeader'>
+                              {{data.userName}}
+                            </option>
+                          </select>
+                          <label> Account Agent </label>
+                       
+                          <input type="text" class='dis' formControlName="accountingAgent">
+                          <input type="hidden" formControlName="group">
+                        </div>
+                        <button *ngIf='showCrossAcc' type="button" class="close" (click)="removeAcc(i)"> x</button>
+                      </div>
+                      <button type="button" class="button add" (click)="addAcc()"> + </button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+
+
+            </div>
+            <div class="col-md-12" style="text-align:center;">
+              <button type="submit " class="btn btn-default btn_back">Update</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

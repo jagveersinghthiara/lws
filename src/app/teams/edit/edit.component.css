@@ -1,0 +1,29 @@
+.topspace {
+	margin-top: 20px;
+    margin-left: 250px;
+}
+
+
+button.close {
+    color: red;
+}
+
+button.button.add {
+    font-weight: 900;
+    border: 0px;
+    background: transparent;
+    color: green;
+}
+
+.col-md-4.section1 {
+    border-right: 1px solid #e2d4d4;
+}
+
+.col-md-4.section2 {
+    border-right: 1px solid #e2d4d4;
+    border-left: 1px solid #e2d4d4;
+}
+.col-md-4.section3{
+    border-right: 1px solid #e2d4d4;
+    border-left: 1px solid #e2d4d4;
+}

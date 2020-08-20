@@ -1,0 +1,99 @@
+
+<section>
+  
+    <div class="col-md-9 col-md-offset-3"> 
+        <div class="content">
+                <div class="row pading_row">
+                <div class="col-md-8">
+                    <ul class="ov_boxes">
+                        <li>
+                                <a  [routerLink]="['dispatcher/view/1']">
+                                        <div class="p_bar_up p_canvas"><img src="../../assets/images/multi-agents.png"></div>
+                                        <div class="ov_text">
+                                            <strong>3 458,00</strong>
+                                            Leads
+                                        </div>
+                                </a>
+                           
+                        </li>
+                        <li>
+                                <a  [routerLink]="['/load/view']">
+                            <div class="p_bar_up p_canvas"><img src="../../assets/images/container.png"></div>
+                            <div class="ov_text">
+                                <strong>$43 567,43</strong>
+                                Loads
+                            </div>
+                        </a>
+                        </li>
+                        <li>
+                                <a  [routerLink]="['shipper/view']">
+                            <div class="p_bar_up p_canvas"><img src="../../assets/images/van.png"></div>
+                            <div class="ov_text">
+                                <strong>2304</strong>
+                                Shippers
+                            </div>
+                        </a>
+                        </li>
+                        <!-- <li>
+                            <div class="p_bar_up p_canvas"><img src="../../assets/images/boat.png"></div>
+                            <div class="ov_text">
+                                <strong>30240</strong>
+                                Shipper
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <label > Global Drivers</label>
+                    <ul class="globalDriver"><li class="global" *ngFor='let driver of gloabal'>{{driver.name}} <a [routerLink]="['/driver/viewDetails', driver.id]"  title="View Schedule"><i class="glyphicon glyphicon-time"></i></a></li></ul>
+                </div>
+                </div>
+                <div class="row pading_row">
+                    <div class="col-md-12">
+                        <ul class="dshb_icoNav tac">
+                            <li><a  [routerLink]="['dispatcher/view/1']" style="background-image: url(../../assets/images/multi-agents.png)"><span class="label label-info">+10</span> Sale</a></li>
+                            <li><a [routerLink]="['dispatcher/view/3']" style="background-image: url(../../assets/images/world.png)">Customers</a></li>
+                            <li><a [routerLink]="['shipper/view']" style="background-image: url(../../assets/images/lab.png)">Shipper</a></li>
+                            <li><a [routerLink]="['load/view']" style="background-image: url(../../assets/images/van.png)">Load</a></li>
+                            <li><a  [routerLink]="['employee/view']"  style="background-image: url(../../assets/images/configuration.png)">Employee</a></li>
+                            <!-- <li><a href="invoice_list.html" style="background-image: url(../../assets/images/pie-chart.png)">Billing</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="row pading_row">
+                    <div class="col-md-6">
+                        <div class="upr_map">
+                        <h3 class="heading"> Invoice  
+                                <div class="btn-group right_side">
+                                    <button data-toggle="dropdown" class="btn dropdown-toggle">Weekly <span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Weekly</a></li>
+                                        <li><a href="#">Monthly</a></li>
+                                        <li><a href="#">Yearly</a></li>
+                                    </ul>
+                                </div>
+                        </h3>
+                        <img src="https://blog.e2language.com/wp-content/uploads/2017/11/Picture1.png">
+                    </div>
+                    </div>
+                        <div class="col-md-6">
+                                <div class="upr_map">
+                                        <h3 class="heading">Invoice Second
+                                            <div class="btn-group right_side">
+                                                <button data-toggle="dropdown" class="btn dropdown-toggle">Weekly	 <span class="caret"></span></button>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="#">Weekly</a></li>
+                                                    <li><a href="#">Monthly</a></li>
+                                                    <li><a href="#">Yearly</a></li>
+                                                </ul>
+                                            </div>
+                                        
+                                        </h3>
+                                        <img src="https://matplotlib.org/3.1.1/_images/sphx_glr_bar_stacked_001.png">
+                                
+                            </div>
+                    </div>
+            </div>
+    </div>
+    </div>
+</section>

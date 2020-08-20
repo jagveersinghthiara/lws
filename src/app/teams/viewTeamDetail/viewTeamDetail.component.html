@@ -1,0 +1,103 @@
+<section>
+  <div class="col-md-9 topspace">
+    <div class="content">
+      <div class="col-md-12">
+        <div class="fomr_section">
+          <h3 class="form_title"> View Team Details <a class="add_btn" routerLink="/teams/edit/{{teamId}}"> <i class="glyphicon glyphicon-pencil"></i> Edit Team</a></h3>
+          <!-- <button *ngIf="admin" class="btn editbtn" type="button" click="navigat()">Edit</button> -->
+          <div class="full">
+            <div class="col-md-4">
+              <span> Name : </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{name}}</span>
+            </div>
+          </div>
+          <div class="full">
+
+            <div class="col-md-4">
+              <span> Dispatch Manager : </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{dispatcherManager}}</span>
+            </div>
+          </div>
+          <div class="full">
+
+            <div class="col-md-4">
+              <span> Account Manager : </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{accountantManager}}</span>
+            </div>
+          </div>
+          <div class="full">
+
+            <div class="col-md-4">
+              <span> Sales Manager : </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{salesManager}}</span>
+            </div>
+          </div>
+          <div class="full">
+            <div class="col-md-4">
+              <span> Dispatch Team Leader: </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{dispatchteamTl}}</span>
+              <div class="teamAgents">
+                <label class="label"> Agents : </label>
+                <div *ngFor='let agent of dispatchteam ;  let i = index'>
+                  <div class="agents">
+                    {{i+1}}. {{agent.user.userName}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="full">
+            <div class="col-md-4">
+              <span> Account Team Leader: </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{accountteamTl}}</span>
+              <div class="teamAgents">
+                <label class="label"> Agents : </label>
+
+                <div *ngFor='let agent of accountteam;  let i = index'>
+                  <div class="agents">
+                    {{i+1}}. {{agent.user.userName}}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="full">
+            <div class="col-md-4">
+              <span> Sales Team Leader: </span>
+            </div>
+            <div class="col-md-6">
+              <span>{{salesTeamTl}}</span>
+
+              <div class="teamAgents">
+                <label class="label"> Agents : </label>
+
+                <div *ngFor='let agent of salesTeam ;  let i = index'>
+                  <div class="agents">
+                    {{i+1}}. {{agent.user.userName}}
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

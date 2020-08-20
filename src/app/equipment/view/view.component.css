@@ -1,0 +1,8 @@
+a.disabled {
+    pointer-events: none;
+   
+  }
+  li.disabled {
+    pointer-events: none;
+   
+  }

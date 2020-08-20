@@ -1,0 +1,28 @@
+<nav [ngClass]="{sidebarPushRight: isActive, collapsed: collapsed}">
+  <div class="col-md-2 side_me">
+    <div class="sidebar">
+      <div class="navtop"></div>
+      <!-- <form class="input-append" method="post">
+        <input autocomplete="off" name="query" class="search_query input-medium" size="16" type="text"
+          placeholder="Search...">
+        <button type="submit" class="btn"><img src="{{htmlImages}}search.png"></button>
+      </form> -->
+      <ul class="nav_bar">
+        <li *ngFor='let item of menuItem'>
+        
+          <a routerLink="{{item.link}}" [routerLinkActive]="['is-active']"  [routerLinkActiveOptions]="{exact:
+            false}">
+            
+            <img *ngIf='item.icon' src="{{htmlImages}}{{item.icon}}">
+            <img *ngIf='!item.icon' src="{{htmlImages}}dummy.png">
+            {{item.title}}
+          </a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+  <!-- <div class="toggle-button" [ngClass]="{collapsed: collapsed}" (click)="toggleCollapsed()">
+    <i class="fa fa-fw fa-angle-double-{{collapsed?'right':'left'}}"></i>&nbsp;
+  </div> -->
+</nav>

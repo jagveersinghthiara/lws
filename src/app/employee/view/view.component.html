@@ -1,0 +1,77 @@
+<div class="col-md-9 topspace">
+        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
+
+            </ngx-spinner>
+  <div class="main_content">
+
+    <div class="sb_title">
+      <h3> Employee List <a class="add_btn" [routerLink]="'/employee/add'"> <i class="glyphicon glyphicon-plus"></i> Add
+          Employee</a></h3>
+
+    </div>
+    <ngx-tabset (onSelect)="employee($event)">
+      <ngx-tab tabTitle="{{tab.title}}" *ngFor="let tab of tabBar;let i = index" [active]="i == 0">
+        <div class="tab-pane active">
+          <div class="row-fluid">
+            <div>
+                    <span>Total records - {{pager.totalItems}}</span>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="display:none">Id</th>
+                    <th>S.No </th>
+                    <th>Name </th>
+                    <th>Email </th>
+                    <th>Action </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let employee of employeesData; let i = index">
+                    <td style="display:none">{{employee.id}} </td>
+                    <td>{{i + 1}} </td>
+                    <td> {{employee.userName}}</td>
+                    <td>{{employee.email}} </td>
+                    <td class="pdf ">
+                      <a [routerLink]="['/employee/edit', employee.id]" title="Edit"><i
+                          class="glyphicon glyphicon-pencil"></i></a>
+                      <a (click)="deleteEmployee(employee.id)" title="Delete"><i
+                          class="glyphicon glyphicon-trash"></i></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="col-md-9">
+                    <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                      <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+                        <a [routerLink]="['/employee/view/',type]" [queryParams]="{ page: 1 }" class="page-link">First</a>
+                      </li>
+                      <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+                        <a [routerLink]="['/employee/view/',type]" [queryParams]="{ page: pager.currentPage - 1 }"
+                          class="page-link">Previous</a>
+                      </li>
+                      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
+                        class="page-item number-item">
+                        <a [routerLink]="['/employee/view/',type]" [queryParams]="{ page: page }"
+                          class="page-link">{{page}}</a>
+                      </li>
+                      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+                        <a [ngClass]="{disabled:pager.currentPage === pager.totalPages}"
+                          [routerLink]="['/employee/view/',type]" [queryParams]="{ page: pager.currentPage + 1 }"
+                          class="page-link">Next</a>
+                      </li>
+                      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+                        <a [routerLink]="['/employee/view/',type]" [queryParams]="{ page: pager.totalPages }"
+                          class="page-link">Last</a>
+                      </li>
+                    </ul>
+                  </div>
+
+            </div>
+          </div>
+        </div>
+      </ngx-tab>
+    </ngx-tabset>
+
+  </div>
+</div>

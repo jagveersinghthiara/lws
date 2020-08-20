@@ -1,0 +1,174 @@
+.topspace {
+	margin-top: 20px;
+    margin-left: 250px;
+}
+.fomr_section form {
+    padding: 22px 35px;
+     margin-top: 19px;
+ }
+ .btn_back {
+      margin-top: 0px; 
+ }
+ .form-group {
+     margin-bottom: 10px;
+ }
+ .cross {
+     color: red;
+     text-align-last: right;
+     padding: 3px;
+     font-size: 15px !important ;
+     font-weight: 100 !important;
+ }
+ .cards_design {
+    width: 99%;
+    background: #fff;
+    padding: 5px;
+    vertical-align: top;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px #ddd;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 1%;
+    margin-top: 15px;
+}
+.load_list_view {
+    padding: 0px 6px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    line-height: 23px;
+    color: #333;
+    font-weight: bold;
+}.load_list_view span {
+    width: 55%;
+    float: right;
+    text-align: left;
+    font-size: 10px;
+    font-weight: bold;
+}.load_list_view h2 {
+    padding: 0px 6px;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    line-height: 23px;
+    color: #333;
+    font-weight: bold;
+}
+.load_list_view h3 {
+    font-size: 11px;
+    font-weight: normal;
+    padding: 0px 10px;
+    line-height: 26px;
+    box-sizing: border-box;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.cards_design select {
+    height: 30px;
+    width: 100%;
+    background: transparent;
+}
+.cards_design input {
+    height: 30px;
+    width: 100%;
+    background: transparent;
+}
+
+.floatLeft{
+    float: left !important ;
+}
+
+b.delete {
+    color: red;
+    cursor: pointer;
+    padding: 3px
+}
+/* 
+.floatRight{
+    float: right;
+} */
+
+
+.button{
+	margin: 0px 4px;
+	float: right;
+    background: #f5b466;
+    padding: 4px;
+    border: red;
+    color: #fff;
+    text-align: center;
+}
+
+.gap{
+	float: right;
+	width: 5px;
+}
+
+
+.chat_page button {
+    padding: 10px 30px;
+    text-align: center;
+    height: 40px;
+    display: inline-block;
+    background: #fbb565;
+    margin-top: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+.chat_page textarea {
+    width: 100%;
+    background: transparent;
+    float: left;
+    height: 90px;
+}
+.chat_page {
+    text-align: center;
+    padding: 10px;
+}
+.chat_list h5 {
+    font-size: 15px !important;
+    text-transform: initial;
+}
+.chat_list p {
+    margin-top: 2px;
+    width: 100%;
+    text-align: right;
+    font-weight: normal;
+    font-size: 14px;
+    text-transform: initial;
+}
+.chat_list p b {
+    font-weight: 600;
+    font-size: 11px;
+}
+.chat_list {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    background: #e2e2e2;
+    padding: 10px;
+}
+.chat_on {
+    width: 100%;
+    padding: 10px;
+    float: left;
+    max-height: 200px;
+    overflow-x: auto;
+}
+p.date {
+    color: #171515;
+    font-style: italic;
+    font-size: 10px !important;
+}
+
+b.delete {
+    color: red;
+    float: right;
+    height: 1px;
+}
+.li{
+    margin-bottom: 10px;
+}

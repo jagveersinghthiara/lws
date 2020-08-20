@@ -1,0 +1,105 @@
+<section>
+  <style>
+  li.pad{
+    padding: 10px;
+    border-left: 3px solid #ddd;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+    background: #f1f1f1;
+}
+li.pad:after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    background: #47e053;
+    left: -9px;
+    border-radius: 10px;
+    bottom: -18px;
+} 
+.fomr_section {
+    padding: 30px 10px;
+}   
+h3.form_title {
+    margin-bottom: 30px;
+    padding: 10px 0px;
+}
+.fomr_section ul {
+    padding: 10px 10px;
+    max-height: 300px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    box-shadow: 0px 0px 4px #ddd;
+}
+ </style>
+ <div class="col-md-4 topspace">
+
+    <div class="content">
+      <div class="row">
+          <h3 class="form_title">  Load fr8-0{{id}}</h3>
+         <ul >
+           <h3 class="top"></h3>
+        <table class="table table-striped">
+          <thead>
+            <tr class="border">
+              <th>Title</th>
+              <th>Description</th>
+             
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Load Term</td>
+              <td>{{data.loadTerm}}</td>
+            </tr>
+              <tr>
+                <td>Pick Up Address</td>
+                <td>{{data.pickUpAddress}}</td>
+              </tr>
+              <tr>
+              <td>Dropoff Address</td>
+              <td>{{data.dropAddress}}</td>
+            </tr>
+            <tr>
+              <td>Pick up time</td>
+              <td>{{data.pickUpTime*1000 |date}}</td>
+            </tr>
+            <tr>
+              <td>Drop off time</td>
+              <td>{{data.dropTime*1000 |date}}</td>
+            </tr>
+
+            <tr>
+              <td>RPM</td>
+              <td>{{data.rpm}}</td>
+            </tr>
+
+            
+          </tbody>
+        </table>
+         </ul>
+      </div>
+    </div>
+
+
+ </div>
+  <div class="col-md-5 ">
+    <div class="content">
+      <div class="row">
+        <div class="fomr_section">
+          <h3 class="form_title">  Load Track </h3>
+         <ul >
+           <h3 class="top"></h3>
+          <li *ngFor='let track of tracks ' class='pad'>
+            <a *ngIf="track.text">
+                {{track.createdAt*1000 |date}} 
+                    {{track.createdAt*1000 |date:'shortTime'}}  -  {{track.text}}
+            </a>
+          </li>
+         </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

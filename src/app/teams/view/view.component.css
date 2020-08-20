@@ -1,0 +1,15 @@
+.sb_title {
+    float: left;
+    width: 100%;
+}ngx-tabset {
+    float: left;
+}
+
+a.disabled {
+    pointer-events: none;
+   
+  }
+  li.disabled {
+    pointer-events: none;
+   
+  }

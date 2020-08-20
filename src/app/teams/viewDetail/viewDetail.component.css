@@ -1,0 +1,62 @@
+.topspace {
+	margin-top: 20px;
+    margin-left: 250px;
+}
+
+
+button.close {
+    color: red;
+    display: none
+}
+
+button.button.add {
+    font-weight: 900;
+    border: 0px;
+    background: transparent;
+    color: green;
+    display: none;
+}
+
+
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+select.form-control {
+    border: none;
+}
+select {
+    overflow-y: auto;
+}
+.form-control[disabled], fieldset[disabled] .form-control {
+  
+    cursor: default;
+}
+
+select option:checked
+{
+    background: linear-gradient(#f1f1f1,#f1f1f1);
+    background-color: #f1f1f1 !important; /* for IE */
+    color: black;
+    display: block
+    
+}
+select:disabled {
+    color: black !important;
+  }
+
+  select option:disabled {
+    color: black !important;
+  }
+
+  input.dis {
+    background: #f1f1f1;
+    border: none;
+    color: black;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: auto;
+}

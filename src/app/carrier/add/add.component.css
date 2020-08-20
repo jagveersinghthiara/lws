@@ -1,0 +1,25 @@
+.topspace {
+	margin-top: 20px;
+    margin-left: 250px;
+}
+
+
+.pointer{
+    cursor: pointer;
+}
+
+.fomr_section form {
+   padding: 22px 35px;
+    margin-top: 0px;
+}
+.btn_back {
+     margin-top: 0px; 
+}
+.form-group {
+    margin-bottom: 10px;
+}
+
+a.add_btn {
+    bottom: 4px;
+    position: relative;
+}

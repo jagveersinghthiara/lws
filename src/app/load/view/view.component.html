@@ -1,0 +1,85 @@
+<div  class="col-md-9 topspace">
+        <ngx-spinner
+        bdColor="rgba(51,51,51,0.8)"
+        size="default"
+        color="#fff"
+        type="ball-spin-fade-rotating"
+        bdOpacity = 0.5 >
+        
+      </ngx-spinner>
+        <div class="main_content">
+            
+            <div class="sb_title">
+                <h3> Load List  <a *ngIf='!Invoice' class="add_btn" [routerLink]="'/load/add'"> 
+                    <i class="glyphicon glyphicon-plus"></i> Add Load</a></h3>
+                
+            </div>
+                
+    <div >
+            <span>Total records - {{pager.totalItems}}</span>
+    <table class="table" >
+        <thead>
+            <tr>
+                <th style="display:none">Id</th>
+                <th>Sr. No. </th>
+                <th>Shipper Name </th>
+                <th>Broker Name </th>
+                <th>Origin City </th>
+                <th>Destination City </th>
+                <th>PickUp Time </th>
+                <th>Drop Time </th>
+                <th>Status </th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+       
+            <tr *ngFor="let load of loadList; let i = index">
+                <td style="display:none">{{load.id}} </td>
+                <td>{{page+i+1}}</td>
+                <td>  {{load.customerName}}</td>
+                <td>{{load.brokerName}} </td>
+                <td>{{load.originCity}}</td>
+                <td>{{load.destinationCity}}</td>
+                <td>{{load.pickUpTime * 1000 | date:'yyyy-MM-dd h:mm a' }}</td>
+                <td>{{load.dropTime * 1000 | date:'yyyy-MM-dd h:mm a'}}</td>
+                <td [ngSwitch]="load.status">
+                        <span *ngSwitchCase="0"> Pending    </span>
+                        <span *ngSwitchCase="1"> Picked up  </span>
+                        <span *ngSwitchCase="2"> Dispatched </span>
+                        <span *ngSwitchCase="3"> Completed  </span>
+
+                </td>
+       
+                <td class="pdf "> 
+                    <a [routerLink]="['/load/basicEdit', load.id]"  title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a  (click)="deleteLoad(load.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a  *ngIf='!Invoice' [routerLink]="['/load/assign', load.id]"><img src="../../../assets/images/van.png" style="height:16px"/></a>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="col-md-9">
+        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
+                <a [routerLink]="['/load/view']" [queryParams]="{ page: 1 }" class="page-link">First</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
+                <a [routerLink]="['/load/view']" [queryParams]="{ page: pager.currentPage - 1 }" class="page-link">Previous</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
+                <a [routerLink]="['/load/view']" [queryParams]="{ page: page }" class="page-link">{{page}}</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
+                <a [routerLink]="['/load/view']" [queryParams]="{ page: pager.currentPage + 1 }" class="page-link">Next</a>
+            </li>
+            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
+                <a [routerLink]="['/load/view']" [queryParams]="{ page: pager.totalPages }" class="page-link">Last</a>
+            </li>
+        </ul>    </div>
+    </div>
+    
+    
+        </div>
+    </div>

@@ -1,0 +1,29 @@
+.navbar-inner {
+    background: #fbb565;
+}
+.navbar .nav > li > a {
+    color: #fff;
+    text-shadow: none;
+}
+.nav-tabs {
+border-bottom: none;
+}
+.brand img {
+width: 71px;
+padding: 3px;
+}
+.nb_boxes.clearfix {
+display: none;
+}
+.nav.nav-tabs {
+text-align: left;
+border-bottom: 1px solid #ddd;
+margin: 20px 0px;
+}
+.nav-collapse .nav {
+display: none;
+}
+
+
+
+

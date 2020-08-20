@@ -1,0 +1,24 @@
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a [routerLink]="['/']"  class="brand"><img src="assets/images/logo.png"></a>
+                <ul class="nav user_menu pull-right">
+                                
+                    <li class="dropdown" style="cursor: pointer;">
+                        <a  (click)="showDetail=!showDetail" class="dropdown-toggle" data-toggle="dropdown"><img src="http://202.164.42.227/designer/FR_buddy/Admin/img/user_avatar.png" alt="" class="user_avatar"> <span  *ngIf='user'> {{user.userName}} </span> 
+                            <!-- <span  *ngIf='!user'> Admin </span>  -->
+                            <b class="caret"></b></a>
+                        <ul  *ngIf="showDetail">
+    
+                            <li><a (click)= "logout()">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <a data-target=".nav-collapse" data-toggle="collapse" class="btn_menu">
+                    <span class="icon-align-justify icon-white"></span>
+                </a>
+              
+            </div>
+        </div>
+    </div>
+
