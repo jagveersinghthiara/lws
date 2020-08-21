@@ -49,17 +49,22 @@ Login Function
       return;
     }
     this.spinner.show();
-    this.authService.login(this.f.email.value, this.f.password.value ).subscribe(
-      (response: any) => {
+    debugger
+    if(this.f.email.value == 'admin@lws.com' && this.f.password.value == 'admin@123'  ){
+
+    
+    // this.authService.login(this.f.email.value, this.f.password.value ).subscribe(
+    //   (response: any) => {
           this.router.navigate(['/dashboard']);
-          localStorage.setItem('authToken', response.body.token);
+          localStorage.setItem('authToken', "adminLoggedin");
           this.spinner.hide();
 
-      },
-      (error) => {
+      // },
+    }else
+       {
         this.spinner.hide();
-        this.toastr.error(error.error.message);
+        this.toastr.error("INVALID CREDENTIALS");
 
-      });
+      }
   }
 }

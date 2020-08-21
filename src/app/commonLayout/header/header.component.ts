@@ -18,14 +18,14 @@ export class HeaderComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    this.commonService.profile().subscribe(
-      (response: any) => {
-        this.user = response.body;
-      },
-      (error) => {
-        this.router.navigate(['/']);
-      });
+this.user ={"userName":"ADMIN"}
+    // this.commonService.profile().subscribe(
+    //   (response: any) => {
+    //     this.user = response.body;
+    //   },
+    //   (error) => {
+    //     this.router.navigate(['/']);
+    //   });
   }
 
 

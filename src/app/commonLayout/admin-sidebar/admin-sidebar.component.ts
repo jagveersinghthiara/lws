@@ -31,16 +31,20 @@ export class AdminSidebarComponent implements OnInit {
         private commonService: CommonService,
 
     ) {
-        this.commonService.profile().subscribe(
-            (response: any) => {
-                this.user = response.body;
-                localStorage.setItem('user',this.user.role);
-                this.role = this.user.role;
+
+        this.role = 0;
                 this.menuItem = MENU_ITEMS.filter(item => this.userRoles[this.role].includes(item.title));
-            },
-            (error) => {
-                this.router.navigate(['/']);
-            });
+        //     
+        // this.commonService.profile().subscribe(
+        //     (response: any) => {
+        //         this.user = response.body;
+        //         localStorage.setItem('user',this.user.role);
+        //         this.role = this.user.role;
+        //         this.menuItem = MENU_ITEMS.filter(item => this.userRoles[this.role].includes(item.title));
+        //     },
+        //     (error) => {
+        //         this.router.navigate(['/']);
+        //     });
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&

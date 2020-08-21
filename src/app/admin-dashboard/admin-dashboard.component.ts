@@ -14,10 +14,10 @@ export class AdminDashboardComponent implements OnInit {
     private http: HttpClient,
   ) { 
 
-    this.http.get(this.baseUrl + 'driverGlobal').subscribe(
-      (response: any) => {
-        this.gloabal = response.body;
-      });
+    // this.http.get(this.baseUrl + 'driverGlobal').subscribe(
+    //   (response: any) => {
+    //     this.gloabal = response.body;
+    //   });
 
   }
 

@@ -11,10 +11,10 @@
 // };
 export const environment = {
   production: false,
-  baseUrl: 'http://3.13.214.27:5003/v1/',
+  baseUrl: 'http://165.227.125.204:3008/Track/',
   htmlImages: '../../../assets/images/',
   dateFormat: 'YYYY-MM-DD hh:mm a',
-  imagesUrl: 'http://3.13.214.27:5003/',
+  imagesUrl: 'http://165.227.125.204:3008/Track/',
 };
 
 /*

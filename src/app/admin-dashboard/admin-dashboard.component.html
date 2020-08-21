@@ -6,56 +6,44 @@
                 <div class="row pading_row">
                 <div class="col-md-8">
                     <ul class="ov_boxes">
+                      
                         <li>
-                                <a  [routerLink]="['dispatcher/view/1']">
-                                        <div class="p_bar_up p_canvas"><img src="../../assets/images/multi-agents.png"></div>
-                                        <div class="ov_text">
-                                            <strong>3 458,00</strong>
-                                            Leads
-                                        </div>
-                                </a>
-                           
-                        </li>
-                        <li>
-                                <a  [routerLink]="['/load/view']">
+                                <!-- <a  [routerLink]="['/load/view']"> -->
+                                <a  >
+                                    
                             <div class="p_bar_up p_canvas"><img src="../../assets/images/container.png"></div>
                             <div class="ov_text">
                                 <strong>$43 567,43</strong>
-                                Loads
+                                
+                                <h2>Loads</h2>
                             </div>
                         </a>
                         </li>
                         <li>
-                                <a  [routerLink]="['shipper/view']">
+                                <a  >
                             <div class="p_bar_up p_canvas"><img src="../../assets/images/van.png"></div>
                             <div class="ov_text">
                                 <strong>2304</strong>
-                                Shippers
+                                <h2>
+                                    Shippers
+
+                                </h2>
                             </div>
                         </a>
                         </li>
-                        <!-- <li>
-                            <div class="p_bar_up p_canvas"><img src="../../assets/images/boat.png"></div>
-                            <div class="ov_text">
-                                <strong>30240</strong>
-                                Shipper
-                            </div>
-                        </li> -->
+                       
                     </ul>
                 </div>
                 <div class="col-md-4">
-                    <label > Global Drivers</label>
-                    <ul class="globalDriver"><li class="global" *ngFor='let driver of gloabal'>{{driver.name}} <a [routerLink]="['/driver/viewDetails', driver.id]"  title="View Schedule"><i class="glyphicon glyphicon-time"></i></a></li></ul>
+                    
                 </div>
                 </div>
                 <div class="row pading_row">
                     <div class="col-md-12">
                         <ul class="dshb_icoNav tac">
-                            <li><a  [routerLink]="['dispatcher/view/1']" style="background-image: url(../../assets/images/multi-agents.png)"><span class="label label-info">+10</span> Sale</a></li>
-                            <li><a [routerLink]="['dispatcher/view/3']" style="background-image: url(../../assets/images/world.png)">Customers</a></li>
-                            <li><a [routerLink]="['shipper/view']" style="background-image: url(../../assets/images/lab.png)">Shipper</a></li>
-                            <li><a [routerLink]="['load/view']" style="background-image: url(../../assets/images/van.png)">Load</a></li>
-                            <li><a  [routerLink]="['employee/view']"  style="background-image: url(../../assets/images/configuration.png)">Employee</a></li>
+                            <li><a  style="background-image: url(../../assets/images/world.png)">Customers</a></li>
+                            <li><a  style="background-image: url(../../assets/images/lab.png)">Shipper</a></li>
+                            <li><a  style="background-image: url(../../assets/images/van.png)">Load</a></li>
                             <!-- <li><a href="invoice_list.html" style="background-image: url(../../assets/images/pie-chart.png)">Billing</a></li> -->
                         </ul>
                     </div>

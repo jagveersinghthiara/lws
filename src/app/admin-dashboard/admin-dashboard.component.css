@@ -15,13 +15,13 @@
 
 .ov_boxes li {
     box-shadow: inset 0px 1px 0px 0px #fff;
-    line-height: 18px;
+    line-height: 50px;
     background: #f9f9f9;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(100%,#ededed));
     display: inline-block;
     margin: 0 10px 10px;
     border-radius: 4px;
-    width: 20%;
+    width: 46%;
 }
 
 .ov_boxes .p_canvas {
@@ -51,10 +51,11 @@
     text-align: center;
     list-style: none;
     display: inline-block;
-    margin: 0 5px 10px;
+    margin: 0 12px 10px;
     background: -webkit-linear-gradient(top, #f9f9f9 0%,#efefef 100%);
     border: 1px solid #e2e2e2;
     border-radius: 6px;
+    padding: 10px 44px 35px;
 }
 
 .dshb_icoNav li a {

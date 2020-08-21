@@ -1,5 +1,5 @@
 export const ROLES = [
-    ['Dashboard', 'Shipper', 'Sale', 'Employee', 'Team', 'Driver', 'Broker', 'Sale List', 'Load', 'Equipment'], // 0
+    ['Dashboard',  'Delivery Man'], // 0
     ['Dashboard', 'Shipper', 'Sale', 'Employee', 'Team', 'Driver', 'Broker', 'Sale List', 'Load', 'Equipment'], // 1
     ['Dashboard', 'Shipper', 'Sale', 'Employee', 'Team', 'Driver', 'Broker', 'Sale List', 'Load', 'Equipment'], // 2
     ['Dashboard', 'Sale', 'Sale List', 'Teams'], // 3

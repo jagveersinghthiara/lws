@@ -25,7 +25,7 @@ export let MENU_ITEMS = [
     link : '/teams/view',
 },
 {
-    title: 'Driver',
+    title: 'Delivery Man',
     icon : 'male-user.png',
     link : '/driver/view',
 },
