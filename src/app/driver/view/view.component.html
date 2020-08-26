@@ -2,7 +2,7 @@
         <div class="main_content">
             
             <div class="sb_title">
-                <h3> Delivery Man List  <a class="add_btn" [routerLink]="'/driver/add'"> <i class="glyphicon glyphicon-plus"></i> Add Driver</a></h3>
+                <h3> Delivery Man List  <a class="add_btn" [routerLink]="'/driver/add'"> <i class="glyphicon glyphicon-plus"></i> Add Delivery Man</a></h3>
                 
             </div>
                 
@@ -27,7 +27,7 @@
                 <td class="pdf"> 
                         <!-- <a [routerLink]="['/driver/viewDetails', driver.deliverymanId]"  title="View Schedule Details"><i class="glyphicon glyphicon-time"></i></a> -->
                     <a [routerLink]="['/driver/edit', driver.deliverymanId]"  title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                    <a  (click)="deleteDriver(driver.deliverymanId)"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a  title="Delete" (click)="deleteDriver(driver.deliverymanId)"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
         </tbody>

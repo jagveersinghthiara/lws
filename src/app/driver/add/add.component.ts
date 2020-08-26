@@ -101,11 +101,11 @@ body.set('deliveryman_name', this.f.name.value);
 body.set('deliveryman_email', this.f.email.value);
 body.set('deliveryman_mobile_number', this.f.phone.value);
 body.set('deliveryman_password', this.f.password.value);
-console.log(body)
+
    let options = {
-    // headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
 };
-    this.http.post(this.baseUrl + 'delivery/add_deliveryman', formData ).subscribe(
+    this.http.post(this.baseUrl + 'delivery/add_deliveryman', body.toString() ,options).subscribe(
       (response: any) => {
         this.toastr.success(response.message);
         this.driverForm.reset();

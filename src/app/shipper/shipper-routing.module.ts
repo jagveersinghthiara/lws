@@ -7,7 +7,7 @@ import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
-    path: 'shipper',
+    path: 'vehicles',
     component: MainLayoutComponent,
     children: [
       { path: 'add', component: AddComponent },

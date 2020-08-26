@@ -28,19 +28,19 @@ export class EditComponent implements OnInit {
 
 
   ) {
-    this.http.get(this.baseUrl + 'carrierList').subscribe(
-      (response: any) => {
-        this.firmList = response.body;
-      },
-      (error) => {
-      });
+    // this.http.get(this.baseUrl + 'carrierList').subscribe(
+    //   (response: any) => {
+    //     this.firmList = response.body;
+    //   },
+    //   (error) => {
+    //   });
 
-    this.http.get(this.baseUrl + 'equipment').subscribe(
-        (response: any) => {
-          this.equipments = response.body;
-        },
-        (error) => {
-        });
+    // this.http.get(this.baseUrl + 'equipment').subscribe(
+    //     (response: any) => {
+    //       this.equipments = response.body;
+    //     },
+    //     (error) => {
+    //     });
 
     this.http.get(this.baseUrl + 'driver/' + this.activatedRoute.snapshot.paramMap.get('id')).subscribe(
       (response: any) => {

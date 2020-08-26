@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../../environments/environment';
@@ -38,14 +38,12 @@ export class ViewComponent implements OnInit {
     private route: ActivatedRoute,
     private spinner: NgxSpinnerService
   ) {
-    const type = this.route.snapshot.paramMap.get('type');
-    this.route.queryParams.subscribe(response => this.loadPage(response.page || 1, type || 1));
 
   }
   ngOnInit() {
     this.carrierForm = this.formBuilder.group({
     });
-
+    this.loadPage() 
   }
 
   dispatcher(event: number) {
@@ -53,22 +51,17 @@ export class ViewComponent implements OnInit {
     ///// as event starts from 0
     this.page = 0;
     this.type = role;
-    this.route.queryParams.subscribe(response => this.loadPage(this.page || 1, this.type || 1));
+    // this.route.queryParams.subscribe(response => this.loadPage(this.page || 1, this.type || 1));
   }
   updateStatus(id, status) {
 
   }
-  loadPage(page, type) {
+  loadPage() {
     this.spinner.show();
-    this.page = page;
-    this.type = type;
-    if (this.page > this.pager.totalPages) {
-      this.page = this.page - 1;
-    }
-    this.http.get(this.baseUrl + `carrier/` + this.type + `?page=${this.page}`).subscribe((response: any) => {
+    
+    this.http.get(this.baseUrl + `admin/admin_buyers`).subscribe((response: any) => {
       this.spinner.hide();
-      this.pager = response.body.pager;
-      this.carrierData = response.body.carrierData;
+      this.carrierData = response.data;
     });
 
 
@@ -77,11 +70,16 @@ export class ViewComponent implements OnInit {
   /*
   Customer Delete Function
   */
-  deleteCustomer(id: number) {
+  deleteCustomer(id) {
     this.spinner.show();
-    if (confirm('Are you sure to delete Dispatcher')) {
-
-      this.http.delete(this.baseUrl + 'carrier/' + id).subscribe(
+    if (confirm('Are you sure to delete buyer')) {
+      let body = new URLSearchParams();
+      body.set('shopId', id);
+     
+      let options = {
+        headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+      this.http.post(this.baseUrl + '/shop/delete_shop/',body.toString(),options ).subscribe(
         (response: any) => {
           this.toastr.success(response.message);
           this.spinner.hide();

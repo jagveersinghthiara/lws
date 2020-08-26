@@ -1,63 +1,92 @@
-<div  class="col-md-9 topspace">
-        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
+<div class="col-md-9 topspace">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
 
-            </ngx-spinner>
-        <div class="main_content">
-            
-            <div class="sb_title">
-                <h3> Shipper List 
-                   
-                    <a class="add_btn" [routerLink]="'/shipper/add'"> <i class="glyphicon glyphicon-plus"></i> Add Shipper</a></h3>
-                
-            </div>
-                
-    <div >
-            <span>Total records - {{pager.totalItems}}</span>
-    <table class="table" >
-        <thead>
-            <tr>
-                <th style="display:none">Id</th>
-                <th>S.No </th>
-                <th>Name </th>
-                <th>Email </th>
-                <th>Phone </th>
-                <th>Action </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let shippers of shippersData; let i = index">
-                <td style="display:none">{{shippers.id}} </td>
-                <td>{{i+ pager.startIndex  + 1}} </td>
-                <td>  {{shippers.name}}</td>
-                <td>{{shippers.email}} </td>
-                <td>{{shippers.phone}} </td>
-                <td class="pdf "> 
-                    <a [routerLink]="['/shipper/edit', shippers.id]"  title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                    <a  (click)="deleteCustomer(shippers.id)"><i class="glyphicon glyphicon-trash"></i></a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="col-md-9">
-            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
-                    <a [routerLink]="['/shipper/view']" [queryParams]="{ page: 1 }" class="page-link">First</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
-                    <a [routerLink]="['/shipper/view']" [queryParams]="{ page: pager.currentPage - 1 }" class="page-link">Previous</a>
-                </li>
-                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
-                    <a [routerLink]="['/shipper/view']" [queryParams]="{ page: page }" class="page-link">{{page}}</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
-                    <a [routerLink]="['/shipper/view']" [queryParams]="{ page: pager.currentPage + 1 }" class="page-link">Next</a>
-                </li>
-                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
-                    <a [routerLink]="['/shipper/view']" [queryParams]="{ page: pager.totalPages }" class="page-link">Last</a>
-                </li>
-            </ul>    </div>
-    </div>
-    
-    
+    </ngx-spinner>
+    <div class="main_content">
+
+        <div class="sb_title">
+            <h3> My Vehicles List
+
+                <a class="add_btn" [routerLink]="'/vehicles/add'"> <i class="glyphicon glyphicon-plus"></i> Add
+                    Vehicle</a></h3>
+
         </div>
+
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="display:none">Id</th>
+                        <th>S.No </th>
+                        <th>Name </th>
+                        <th>Current kms </th>
+                        <th>Shop Vehicle Last Km </th>
+                        <th>Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let shippers of shippersData; let i = index">
+                        <td style="display:none">{{shippers.vehicleId}} </td>
+                        <td>{{i+ 1}} </td>
+                        <td> {{shippers.vehicle_name}}</td>
+                        <td>{{shippers.current_kms}} </td>
+                        <td>{{shippers.shopvehiclelastKm}} </td>
+                        <td class="pdf ">
+                            <a [routerLink]="['/vehicles/edit', shippers.vehicleId]" title="Edit"><i
+                                    class="glyphicon glyphicon-pencil"></i></a>
+                            <a title="Delete" (click)="deleteCustomer(shippers.vehicleId)"><i
+                                    class="glyphicon glyphicon-trash"></i></a>
+                            <a title="View Logs" (click)="viewLogs(shippers.vehicleId ,shippers.vehicle_name)"><i
+                                    class="glyphicon glyphicon-list-alt"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="col-md-12 md" style="
+    background: #fbb565;
+    padding: 10px;
+" *ngIf='viewlog'>
+<span class="cncl" (click)='hide()'> Hide</span>
+            <h4 style="
+border-bottom: 2px solid;
+padding: 5px;
+">Vehicle Logs</h4> 
+<span class='col-md-12 nf' *ngIf='vLogs.length ==0'>No records found ! </span>
+
+            <div class="sd" *ngFor="let g of vLogs">
+                <div class="col-md-6 ds">
+                    Vehicle Name <span> <b>{{vehicleName}}</b></span>
+
+                </div>
+                <div class="col-md-6 ds">
+                    Delivery Man <span><b>{{g.deliveryman_name}}</b></span>
+
+                </div>
+
+                <table class="table" >
+                    <thead>
+                        <tr>
+                            <th>Starting Miles</th>
+                            <th>End Miles </th>
+                            <th>Route kms </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{g.starting_miles}} </td>
+                            <td>{{g.end_miles}} </td>
+                            <td>{{g.route_kms}} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
     </div>
+</div>

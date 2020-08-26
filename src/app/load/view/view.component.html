@@ -1,85 +1,157 @@
-<div  class="col-md-9 topspace">
-        <ngx-spinner
-        bdColor="rgba(51,51,51,0.8)"
-        size="default"
-        color="#fff"
-        type="ball-spin-fade-rotating"
-        bdOpacity = 0.5 >
-        
-      </ngx-spinner>
-        <div class="main_content">
-            
-            <div class="sb_title">
-                <h3> Load List  <a *ngIf='!Invoice' class="add_btn" [routerLink]="'/load/add'"> 
-                    <i class="glyphicon glyphicon-plus"></i> Add Load</a></h3>
-                
-            </div>
-                
-    <div >
-            <span>Total records - {{pager.totalItems}}</span>
-    <table class="table" >
-        <thead>
-            <tr>
-                <th style="display:none">Id</th>
-                <th>Sr. No. </th>
-                <th>Shipper Name </th>
-                <th>Broker Name </th>
-                <th>Origin City </th>
-                <th>Destination City </th>
-                <th>PickUp Time </th>
-                <th>Drop Time </th>
-                <th>Status </th>
-                <th>Action </th>
-            </tr>
-        </thead>
-        <tbody>
-       
-            <tr *ngFor="let load of loadList; let i = index">
-                <td style="display:none">{{load.id}} </td>
-                <td>{{page+i+1}}</td>
-                <td>  {{load.customerName}}</td>
-                <td>{{load.brokerName}} </td>
-                <td>{{load.originCity}}</td>
-                <td>{{load.destinationCity}}</td>
-                <td>{{load.pickUpTime * 1000 | date:'yyyy-MM-dd h:mm a' }}</td>
-                <td>{{load.dropTime * 1000 | date:'yyyy-MM-dd h:mm a'}}</td>
-                <td [ngSwitch]="load.status">
-                        <span *ngSwitchCase="0"> Pending    </span>
-                        <span *ngSwitchCase="1"> Picked up  </span>
-                        <span *ngSwitchCase="2"> Dispatched </span>
-                        <span *ngSwitchCase="3"> Completed  </span>
+<div class="col-md-9 topspace">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
 
-                </td>
-       
-                <td class="pdf "> 
-                    <a [routerLink]="['/load/basicEdit', load.id]"  title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
-                    <a  (click)="deleteLoad(load.id)"><i class="glyphicon glyphicon-trash"></i></a>
-                    <a  *ngIf='!Invoice' [routerLink]="['/load/assign', load.id]"><img src="../../../assets/images/van.png" style="height:16px"/></a>
+    </ngx-spinner>
+    <div class="main_content">
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="col-md-9">
-        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
-                <a [routerLink]="['/load/view']" [queryParams]="{ page: 1 }" class="page-link">First</a>
-            </li>
-            <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
-                <a [routerLink]="['/load/view']" [queryParams]="{ page: pager.currentPage - 1 }" class="page-link">Previous</a>
-            </li>
-            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="page-item number-item">
-                <a [routerLink]="['/load/view']" [queryParams]="{ page: page }" class="page-link">{{page}}</a>
-            </li>
-            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
-                <a [routerLink]="['/load/view']" [queryParams]="{ page: pager.currentPage + 1 }" class="page-link">Next</a>
-            </li>
-            <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
-                <a [routerLink]="['/load/view']" [queryParams]="{ page: pager.totalPages }" class="page-link">Last</a>
-            </li>
-        </ul>    </div>
+        <div class="sb_title">
+            <h3> Route List <a class="add_btn" [routerLink]="'/route/add'">
+                    <i class="glyphicon glyphicon-plus"></i> Add Route</a></h3>
+
+        </div>
+
+        <div>
+            {{closeResult }}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th style="display:none">Id</th>
+                        <th>Sr. No. </th>
+                        <th>Route Name </th>
+                        <th>Delivery Man Name </th>
+                        <th>Status </th>
+                        <th>Action </th>
+                        <th>Manage</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let load of loadList; let i = index">
+                        <td style="display:none">{{load.routeId}} </td>
+                        <td>{{i+1}}</td>
+                        <td> {{load.route_name}}</td>
+                        <td>{{load.deliveryman_name}} </td>
+                        <td [ngSwitch]="load.route_status">
+                            <span *ngSwitchCase="0"> Inactive </span>
+                            <span *ngSwitchCase="1"> Active </span>
+                        </td>
+                        <!-- <td>{{load.created_at || ''| date:'yyyy-MM-dd h:mm a' }}</td> -->
+                        <td class="pdf ">
+                            <a [routerLink]="['/route/basicEdit', load.routeId]" title="Edit"><i
+                                    class="glyphicon glyphicon-pencil"></i></a>
+                            <a  title="Delete" (click)="deleteLoad(load.routeId)"><i class="glyphicon glyphicon-trash"></i></a>
+                            
+                        </td>
+                        <td class="pdf ">
+                            
+                            <button type="button" class="btt" (click)='showVehicle(load.routeId,load.route_name)' title="Shop" ><img
+                                    src="../../../assets/images/home.png" style="height:16px" /></button>
+                                    <button  title="Delivery Man"  *ngIf='load.deliverymanId ==0' class="btt"  type="button" (click)='showDeliveryMan(load.routeId,load.route_name)'><img
+                                        src="../../../assets/images/agent.png" style="height:16px" /></button>
+                                        <!-- <a  -->
+                                        <button  title="View/Add Details"  [routerLink]="['/route/basicEdit', load.routeId]"   class="btt"  type="button" ><img
+                                            src="../../../assets/images/briefcase.png" style="height:16px" /> Details</button>
+                                        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
     </div>
-    
-    
+
+    <div class="content" id="addVehicle" [hidden]='addVehicle'>
+        <div class="col-md-12">
+            <div class="fomr_section load_list_view">
+                <h3 class="form_title"> Add Shop To <b>{{route}}</b> </h3>
+                <form [formGroup]="loadForm" (ngSubmit)="addLoad()">
+                    <div class="row-fluid">
+
+                        <div class="col-md-12">
+                            <div class="cards_design">
+                                <h3>Select Shop</h3>
+                                <span>
+                                    <select formControlName="shopId" class="form-control" (change)='SelectShop($event)'
+                                        [ngClass]="{ 'is-invalid': submitted && f.shopId.errors }">
+                                        <option value="" disabled>Select</option>
+                                        <option value='{{shop |json}}' *ngFor='let shop of shopList'>{{shop.shop_name}}
+                                        </option>
+                                    </select>
+                                </span>
+                                <div *ngIf="submitted && f.shopId.errors" class="invalid-feedback">
+                                    <p class="error-message" *ngIf=" f.shopId.errors.required">
+                                        Shop is required!
+                                    </p>
+                                </div>
+                                <div *ngIf='selectedShops.length>0'>
+                                    <p>Selected Shops: </p>
+                                    <ul>
+                                        <li *ngFor='let shop of selectedShops; let i = index '>
+                                            <span> {{i+1}}. </span> <b>{{shop.shop_name}}</b>
+                                            <a (click)='remove(i)' title="remove"><i
+                                                    class="glyphicon glyphicon-trash"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn_back bt" type="button" (click)='addShop()'> Save</button>
+                            <button class="cancel_back bt" type="button" (click)='cancel()'> Cancel</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
+    <div class="content" id="addDelivary" [hidden]='addDelivary'>
+        <div class="col-md-12">
+            <div class="fomr_section load_list_view">
+                <h3 class="form_title"> Add Delivary Man To <b>{{route}}</b> </h3>
+                <form [formGroup]="DMForm" (ngSubmit)="addLoad()">
+                    <div class="row-fluid">
+
+                        <div class="col-md-12">
+                            <div class="cards_design">
+                                <h3>Select Delivery Man</h3>
+                                <span>
+                                    <select formControlName="dmId" class="form-control" (change)='SelectDM($event)'
+                                        [ngClass]="{ 'is-invalid': submitted && ff.dmId.errors }">
+                                        <option value="" disabled>Select</option>
+                                        <option value='{{dm |json}}' *ngFor='let dm of DmList'>{{dm.deliveryman_name}}
+                                        </option>
+                                    </select>
+                                </span>
+                                <div *ngIf="submitted && ff.dmId.errors" class="invalid-feedback">
+                                    <p class="error-message" *ngIf=" ff.dmId.errors.required">
+                                        Shop is required!
+                                    </p>
+                                </div>
+                                <div *ngIf='selectedDM.length>0'>
+                                    <p>Selected Delivery Man: </p>
+                                    <ul>
+                                        <li *ngFor='let dm of selectedDM; let i = index '>
+                                            <span> {{i+1}}. </span> <b>{{dm.deliveryman_name}}</b>
+                                            <a (click)='removeDm(i)' title="remove"><i
+                                                    class="glyphicon glyphicon-trash"></i></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <button class="btn_back bt" type="button" (click)='addDM()'> Save</button>
+                            <button class="cancel_back bt" type="button" (click)='cancel()'> Cancel</button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+   

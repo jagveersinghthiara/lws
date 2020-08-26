@@ -10,14 +10,14 @@ import {TrackComponent} from './track/track.component';
 
 const routes: Routes = [
   {
-    path: 'load',
+    path: 'route',
     component: MainLayoutComponent,
     children: [
       { path: 'add', component: AddComponent },
       { path: 'view', component: ViewComponent},
       { path: 'basicEdit/:id', component: EditComponent },
       { path: 'assign/:id', component: AssignComponent },
-      { path: 'edit/:id', component: EditDetailComponent },
+      { path: 'editt/:id', component: EditDetailComponent },
       { path: 'track/:id', component: TrackComponent }
 
 

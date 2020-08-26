@@ -30,19 +30,19 @@ export let MENU_ITEMS = [
     link : '/driver/view',
 },
 {
-    title: 'Broker',
+    title: 'My Buyers',
     icon : 'dollar.png',
-    link : '/broker/view',
+    link : '/buyer/view',
 },
 {
-    title: 'Sale List',
-    icon : 'dollar.png',
-    link : '/sales/view',
-},
-{
-    title: 'Load',
+    title: 'My Vehicles',
     icon : 'van.png',
-    link : '/load/view',
+    link : '/vehicles/view',
+},
+{
+    title: 'Delivery Route',
+    icon : 'connected.png',
+    link : '/route/view',
 },
 {
     title: 'Teams',

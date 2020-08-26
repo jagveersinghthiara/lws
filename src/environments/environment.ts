@@ -13,7 +13,8 @@ export const environment = {
   production: false,
   baseUrl: 'http://165.227.125.204:3008/Track/',
   htmlImages: '../../../assets/images/',
-  dateFormat: 'YYYY-MM-DD hh:mm a',
+  // dateFormat: 'YYYY-MM-DD hh:mm a',
+  dateFormat: 'YYYY-MM-DD',
   imagesUrl: 'http://165.227.125.204:3008/Track/',
 };
 

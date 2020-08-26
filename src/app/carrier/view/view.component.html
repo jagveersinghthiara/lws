@@ -5,16 +5,15 @@
   <div class="main_content">
 
     <div class="sb_title">
-      <h3> Customer List <a class="add_btn" [routerLink]="'/dispatcher/add'"> <i class="glyphicon glyphicon-plus"></i>
-          Add Customer</a></h3>
+      <h3> My Buyers <a class="add_btn" [routerLink]="'/buyer/add'"> <i class="glyphicon glyphicon-plus"></i>
+          Add Buyer</a></h3>
 
     </div>
-    <ngx-tabset (onSelect)="dispatcher($event)">
+    <!-- <ngx-tabset (onSelect)="dispatcher($event)"> -->
 
-      <ngx-tab tabTitle="{{tab.title}}" *ngFor="let tab of tabBar;let i = index" [active]="i == 0">
+      <!-- <ngx-tab tabTitle="{{tab.title}}" *ngFor="let tab of tabBar;let i = index" [active]="i == 0"> -->
         <div class="tab-pane active">
           <div class="row-fluid">
-              <span>Total records - {{pager.totalItems}}</span>
             <div>
                     <form [formGroup]="carrierForm"  >
               <table class="table">
@@ -22,72 +21,51 @@
                   <tr>
                     <th style="display:none">Id</th>
                     <th>S.No </th>
-                    <th>Legal Name </th>
-                    <th>DBA Name </th>
+                    <th>Name </th>
                     <th>Email </th>
                     <th>Phone </th>
-                    <th>Number of Trucks </th>
-                    <!-- <th>Status</th> -->
+                    <th>Address </th>
+                    <th>Out For Delivery </th>
+                    <th>Received Back </th>
+                    <!-- <th>routeId </th> -->
+                    <th>Missing </th>
+
+                  
                     <th>Action </th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let carrier of carrierData; let i = index">
-                    <td style="display:none">{{carrier.id}} </td>
-                    <td>{{i + pager.startIndex + 1}} </td>
-                    <td> {{carrier.legalName}}</td>
-                    <td> {{carrier.dbaName}}</td>
-                    <td>{{carrier.email}} </td>
-                    <td>{{carrier.phone}} </td>
-                    <td>{{carrier.noofTrucks}} </td>
-                    <!-- <td>
-                        <select (change)="updateStatus(carrier.id,$event.target.value)" class="form-control">
-                          <option value="" disabled>Select</option>
-                          <option value="1" [selected]="carrier.status == 1">Lead</option>
-                          <option value="2" [selected]="carrier.status == 2">Perspective</option>
-                          <option value="3" [selected]="carrier.status == 3">Customer</option>
-                        </select>
+                    <td style="display:none">{{carrier.shopId}} </td>
+                    <td>{{i + 1}} </td>
+                    <td> {{carrier.shop_name}}</td>
+                    <td>{{carrier.shop_email}} </td>
+                    <td>{{carrier.shop_mobile_number}} </td>
+                    <td>{{carrier.shop_address}} </td>
+                    <td>{{carrier.outforDelivery}} </td>
+                    <td>{{carrier.received_back}} </td>
+                    <td>{{carrier.missing}} </td>
 
-                    </td> -->
+                    <!-- "outforDelivery": 2,
+                    "received_back": 1,
+                    "routeId": 1,
+                    "missing": 1 -->
+                   
                     <td class="pdf ">
-                      <a [routerLink]="['/dispatcher/edit', carrier.id]" title="Edit"><i
+                      <a [routerLink]="['/buyer/edit', carrier.shopId]" title="Edit"><i
                           class="glyphicon glyphicon-pencil"></i></a>
-                      <a (click)="deleteCustomer(carrier.id)"><i class="glyphicon glyphicon-trash"></i></a>
+                      <a (click)="deleteCustomer(carrier.shopId)"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
               </form>
-              <div class="col-md-9">
-                <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-                  <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item first-item">
-                    <a [routerLink]="['/dispatcher/view/',type]" [queryParams]="{ page: 1 }" class="page-link">First</a>
-                  </li>
-                  <li [ngClass]="{disabled:pager.currentPage === 1}" class="page-item previous-item">
-                    <a [routerLink]="['/dispatcher/view/',type]" [queryParams]="{ page: pager.currentPage - 1 }"
-                      class="page-link">Previous</a>
-                  </li>
-                  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}"
-                    class="page-item number-item">
-                    <a [routerLink]="['/dispatcher/view/',type]" [queryParams]="{ page: page }"
-                      class="page-link">{{page}}</a>
-                  </li>
-                  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item next-item">
-                    <a [ngClass]="{disabled:pager.currentPage === pager.totalPages}"
-                      [routerLink]="['/dispatcher/view/',type]" [queryParams]="{ page: pager.currentPage + 1 }"
-                      class="page-link">Next</a>
-                  </li>
-                  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="page-item last-item">
-                    <a [routerLink]="['/dispatcher/view/',type]" [queryParams]="{ page: pager.totalPages }"
-                      class="page-link">Last</a>
-                  </li>
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>
-      </ngx-tab>
-    </ngx-tabset>
+      <!-- </ngx-tab> -->
+    <!-- </ngx-tabset> -->
 
 
   </div>

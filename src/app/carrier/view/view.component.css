@@ -12,3 +12,7 @@ a.disabled {
     pointer-events: none;
    
   }
+
+  .pdf a {
+    padding: 5px 2px;
+}

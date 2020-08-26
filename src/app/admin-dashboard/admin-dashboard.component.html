@@ -1,14 +1,19 @@
-
 <section>
-  
-    <div class="col-md-9 col-md-offset-3"> 
+
+    <div class="col-md-9 col-md-offset-3">
         <div class="content">
-                <div class="row pading_row">
-                <div class="col-md-8">
-                    <ul class="ov_boxes">
+            <div class="row pading_row">
+                <div class="col-md-5 md" style="
+                background: #fbb565;
+                padding: 10px;
+            ">
+                    <h4 style="
+border-bottom: 2px solid;
+padding: 5px;
+">TOTE LOGS</h4>
+                    <!-- <ul class="ov_boxes">
                       
                         <li>
-                                <!-- <a  [routerLink]="['/load/view']"> -->
                                 <a  >
                                     
                             <div class="p_bar_up p_canvas"><img src="../../assets/images/container.png"></div>
@@ -32,23 +37,96 @@
                         </a>
                         </li>
                        
-                    </ul>
+                    </ul> -->
+                    <div class="sd" *ngFor="let g of gloabal">
+                        <div class="col-md-6 ds">
+                            Route Name <span> <b>{{g.route_name}}</b></span>
+
+                        </div>
+                        <div class="col-md-6 ds">
+                            Delivery Man <span><b>{{g.deliveryman_name}}</b></span>
+
+                        </div>
+
+                        <span class='col-md-12 nf' *ngIf='g.shop.length ==0'>No records found ! </span>
+                        <table class="table" *ngIf='g.shop.length >0'>
+                            <thead>
+                                <tr>
+                                    <th style="display:none">Id</th>
+                                    <th>Shop Name </th>
+                                    <th>Total Totes </th>
+                                    <th>prev. Totes </th>
+                                    <th>Missing Totes </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let gs of g.shop; let i = index">
+                                    <td>{{gs.shop_name}} </td>
+                                    <td>{{gs.TodayTotes}} </td>
+                                    <td>{{gs.PreviousTotes}} </td>
+                                    <td>{{gs.missing}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
-                <div class="col-md-4">
-                    
+                <div class="col-md-1"></div>
+                <div class="col-md-5 md" style="
+                background: #fbb565;
+                padding: 10px;
+            ">
+                    <h4 style="
+                  border-bottom: 2px solid;
+                  padding: 5px;
+                  ">INVOICE LOGS</h4>
+
+                    <div  class="sd" *ngFor="let i of invoice">
+                        <div  class="col-md-12 ds">
+                            Route Name <span> <b>{{i.route_name}}</b></span>
+
+                        </div>
+
+
+                        <span class='col-md-12 nf' *ngIf='i.shop.length ==0'>No records found ! </span>
+                        <table class="table" *ngIf='i.shop.length >0'>
+                            <thead>
+                                <tr>
+
+                                    <th>Shop Name </th>
+                                    <th>Due </th>
+                                    <th>Paid Amount</th>
+                                    <th>Total Paid Amount </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let gss of i.shop; let ii = index">
+                                    <td>{{gss.shop_name}} </td>
+                                    <td>{{gss.due}} </td>
+                                    <td>{{gss.paid_amount}} </td>
+                                    <td>{{gss.total_paid_amount}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
                 </div>
-                </div>
-                <div class="row pading_row">
+            </div>
+            <!-- <div class="row pading_row">
                     <div class="col-md-12">
                         <ul class="dshb_icoNav tac">
                             <li><a  style="background-image: url(../../assets/images/world.png)">Customers</a></li>
                             <li><a  style="background-image: url(../../assets/images/lab.png)">Shipper</a></li>
                             <li><a  style="background-image: url(../../assets/images/van.png)">Load</a></li>
-                            <!-- <li><a href="invoice_list.html" style="background-image: url(../../assets/images/pie-chart.png)">Billing</a></li> -->
                         </ul>
                     </div>
-                </div>
-                <div class="row pading_row">
+                </div> -->
+            <!-- <div class="row pading_row">
                     <div class="col-md-6">
                         <div class="upr_map">
                         <h3 class="heading"> Invoice  
@@ -81,7 +159,7 @@
                                 
                             </div>
                     </div>
-            </div>
-    </div>
+            </div> -->
+        </div>
     </div>
 </section>

@@ -1,251 +1,103 @@
-<section>
-  <div class="col-md-9 topspace">
-    <div class="content">
-      <div class="row">
-        <div class="fomr_section">
-          <h3 class="form_title"> View Load</h3>
-          <form [formGroup]="loadForm" (ngSubmit)="updateLoad()">
-            <div class="pdf_view load_list_view">
-              <div class="col-md-12"> 
-                   <a class="aButton" *ngIf='loadStatus != 1' [routerLink]="['/load/track', id]">Track </a>
-                 <a class="button" *ngIf='loadStatus != 1' [routerLink]="['/load/edit', id]">Edit </a>
-                <a class="button" *ngIf="loadStatus != 1" [routerLink]="['/load/assign', id]">Assign Load </a>
-                <table class="dlvr_status">
-                
-                  <tbody>
-                    <tr>
-                      <td class="" style="width: 50%">
-                        <!-- 1=>Pending,1=>picked up 2 dispatched 3 delivered 4  -->
-                        <!-- 0 LOAD READY 1 DISPATCHED 2 AT SHIPPER 3 
-                          SHIPPER DETENTION  4 IN TRANSIT 5 AT CONSIGNEE 6 CONSIGNEE DETENTION 7 DELIVERED -->
-                        <div class="pendg" *ngIf="loadStatus == 0">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> LOAD READY </b> </div>
-                        </div>
-                        <div class="dlver" *ngIf="loadStatus == 1">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> DISPATCHED </b> </div>
-                        </div>
-                        <div class="dlver" *ngIf="loadStatus == 2">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> AT SHIPPER </b> </div>
-                        </div>
-                        <div class="pendg" *ngIf="loadStatus == 3">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> SHIPPER DETENTION </b> </div>
-                        </div>
-                        <div class="dlver" *ngIf="loadStatus == 4">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> IN TRANSIT </b> </div>
-                        </div>
-                        <div class="dlver" *ngIf="loadStatus == 5">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> AT CONSIGNEE </b> </div>
-                        </div>
-                        <div class="pendg" *ngIf="loadStatus == 6 ">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> CONSIGNEE DETENTION </b> </div>
-                        </div>
-                        <div class="dlver" *ngIf="loadStatus == 7">
-                          <div class="fity"> Load Status</div>
-                          <div class="fity "> <b> DELIVERED </b> </div>
-                        </div>
+<div class="col-md-9 topspace">
+  <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="default" color="#fff" type="ball-spin-fade-rotating" bdOpacity=0.5>
 
-                        <div class="numberss">
-                          <h4>Load# <b> Fr8-0{{loadId}}</b></h4>
+  </ngx-spinner>
+  <div class="main_content">
+      <div>
+          <table class="table">
+              <thead>
+                  <tr>
+                      <th style="display:none">Id</th>
+                      <th>Sr. No. </th>
+                      <th>Shop Name </th>
+                      <th>Barcode </th>
+                      <th>Add/Delete Boxes</th>
 
-                        </div>
-                        <div class="numberss">
-
-                          <h3><b>Load Term </b><span> {{loadTerm}} </span> </h3>
-                        </div>
-
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let shop of ShopList; let i = index">
+                      <td style="display:none">{{shop.shopId}} </td>
+                      <td>{{i+1}}</td>
+                      <td> {{shop.shop_name}}</td>
+                      <td title="{{shop.barcode}}"> {{shop.barcode | slice:0:50}} ....</td>
+                      <td class="pdf ">
+                                      <button  (click)='showDetails(shop.shopId,shop.shop_name)'  class="btt"  type="button" ><img
+                                          src="../../../assets/images/briefcase.png" style="height:16px" /></button>
+                                      
                       </td>
-                      <td class="" style="width: 50%">
-                     
-                        
-                          <!-- <div class="fity"> <b> Pending </b> </div> -->
-                          <!-- 0 active 1 folow up 2setteled 3 pending -4 rejected -->
-                          <div class="pendg" *ngIf="!invoiceStatus">
-                              <div class="fity"> Invoice Status</div>
-                              <div class="fity "> <b> N/A </b> </div>
-                            </div>
-                          <div class="pendg" *ngIf="invoiceStatus == 0">
-                            <div class="fity"> Invoice Status</div>
-                            <div class="fity "> <b> INVOICED </b> </div>
-                          </div>
+                  </tr>
+              </tbody>
+          </table>
 
-                          <div class="dlver" *ngIf="invoiceStatus == 1">
-                            <div class="fity"> Invoice Status</div>
-                            <div class="fity "> <b> CLEARED </b> </div>
-                          </div>
-
-                          <div class="dlver" *ngIf="invoiceStatus == 2">
-                            <div class="fity"> Invoice Status</div>
-                            <div class="fity "> <b> CLAIM </b> </div>
-                          </div>
-
-                          <div class="pendg" *ngIf="invoiceStatus == 3">
-                            <div class="fity"> Invoice Status</div>
-                            <div class="fity "> <b> PROBLEM </b> </div>
-                          </div>
-
-                        
-                        <div class="numberss">
-                          <h4>Invoice Status <span> 
-                            <!-- <input formControlName="invoicePo" type="text"  ></span></h4> -->
-                            <!-- 1 active 2setteled 3 pending -4 rejected -->
-                            <select formControlName="invoiceStatus" (change)="chngeInvoiceStatus($event)" >
-                                <option value='' disabled>Select</option>
-                                <option value='0'>INVOICED</option>
-                                <option value='1'>CLEARED</option>
-                                <option value='2'>CLAIM</option>
-                                <option value='3'>PROBLEM</option>
-                              </select>
-                            </span></h4>
-                        </div>
-                        <div class="numberss" style="float:right;">
-                          <h4>REF# <span> <input formControlName="invoiceRef" type="text"  ></span></h4>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="ful_dteils">
-                <div class="col-md-3">
-                  <div class="cards_design">
-                    <h2>Carrier </h2>
-                    <h3>LegalName <span> {{carrierLegalName}} </span> </h3>
-                    <h3>DBAName <span> {{carrierDbaName}} </span> </h3>
-                    <h3>Carrier Email <span> {{carrierEmail}}</span> </h3>
-                    <h3>Carrier Phone <span> {{carrierPhone}}</span> </h3>
-                  </div>
-                  <div class="cards_design">
-                    <h2> Driver </h2>
-                    <h3>Driver Name <span> {{driverName}}</span> </h3>
-                    <h3> Driver Email <span> {{driverEmail}} </span> </h3>
-                    <h3>Driver Phone <span>{{driverPhone}}</span> </h3>
-                    <h3>Vehicle No. <span> {{vehicleNumber}}</span> </h3>
-                    <h3>Vehicle Type <span> {{vehicleType}}</span> </h3>
-                    <h3>License No. <span> {{licenseNumber}}</span> </h3>
-                  </div>
-                </div>
-                <div class="col-md-5">
-                  <div class="cards_design">
-                    <h2>Shipper Info</h2>
-                    <h3>Shipper Name <span> {{customerName}}</span> </h3>
-                    <h3> Shipper Email <span> {{customerEmail}} </span> </h3>
-                    <h3>Shipper Phone <span>{{customerPhone}}</span> </h3>
-                  </div>
-                  <div class="cards_design_fifty">
-                    <h2> Route Info </h2>
-                    <div class="route_paln">
-                      <h2> Origin</h2>
-                      <img src="{{htmlImages}}van.png" alt="">
-                      <h5> {{originCity}}</h5>
-                    </div>
-                    <div class="route_paln">
-                      <h2> Destination </h2>
-                      <img src="{{htmlImages}}flag.png" alt="">
-                      <h5> {{destinationCity}}</h5>
-                    </div>
-                  </div>
-
-
-                  <div class="cards_design_fifty" style="float:right;">
-                    <h2> Route Plan </h2>
-                    <div class="route_paln">
-                      <h2> Pickup</h2>
-                      <b> {{pickUpTime | date:'dd'}} <br><small> {{pickUpTime | date:'MM'}} </small></b>
-                    </div>
-                    <div class="route_paln">
-                      <h2> Delivery</h2>
-                      <b> {{dropTime | date:'dd'}} <br> <small> {{dropTime | date:'MM'}} </small></b>
-                    </div>
-                  </div>
-                  <div class="cards_design">
-                       <!-- 0 LOAD READY 1 DISPATCHED 2 AT SHIPPER 3 
-                          SHIPPER DETENTION  4 IN TRANSIT 5 AT CONSIGNEE 6 CONSIGNEE DETENTION 7 DELIVERED -->
-                    <h2>Set Load status TO
-                      <select formControlName="loadStatus" (change)="chngeStatus($event)" >
-                        <option value='0'>LOAD READY</option>
-                        <option value='1'>DISPATCHED</option>
-                        <option value='2'>AT SHIPPER</option>
-                        <option value='3'>SHIPPER DETENTION</option>
-                        <option value='4'>IN TRANSIT</option>
-                        <option value='5'>AT CONSIGNEE</option>
-                        <option value='6'>CONSIGNEE DETENTION</option>
-                        <option value='7'>DELIVERED</option>
-
-                      </select>
-                    </h2>
-                    <div class="btn_stuts">
-                    </div>
-                  </div>
-                  <div class="cards_design">
-                    <h2>Load Documents </h2>
-                    <ul>
-                      <li *ngFor="let file of files ;let i=index">
-
-                        <span>{{i+1}}. </span> <a target="_blank" href="{{url}}{{file.url}}"> {{file.name}} </a>
-                      </li>
-                    </ul>
-
-                    <div class="btn_stuts">
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="cards_design">
-                    <h2>Items </h2>
-                    <table class="inr_tbl">
-                      <tbody>
-                        <tr>
-                          <td><b>Item Name </b> </td>
-                          <td> <b>Item Weight </b> </td>
-                          <td> <b>Item Quantity </b></td>
-                        </tr>
-                        <tr *ngFor='let item of loadItems'>
-                          <td> {{item.itemName}} </td>
-                          <td> {{item.itemQuantity}}</td>
-                          <td> {{item.itemWeight}}</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                  <div class="cards_design">
-                    <h2> Equipment/Service</h2>
-
-                    <h3><b>RPM </b><span>{{rpm}} </span> </h3>
-                    <h3><b>Distance </b><span>{{distance}} </span> </h3>
-                    <h3> <b>Equipment</b> <span *ngFor="let e of equipment"> {{e.EquipName}} </span> </h3>
-
-                    
-                  </div>
-                  <!-- //notes -->
-
-                  <div class="cards_design">
-                    <h2> Note </h2>
-                    <div class=" chat_page">
-                      <textarea formControlName="note"> </textarea>
-                      <button type='button' (click)='addNotes()'> Add Note </button>
-                    </div>
-                    <div class=" chat_on">
-                      <div class=" chat_list" *ngFor='let note of notes ; let i = index'>
-                        <h5> {{note.content}}</h5>
-                        <p> {{note.UserName}}<b>: {{note.UserRole}}</b></p>
-                        <p class="date">{{note.createdAt*1000 |date }}</p> <b class="delete" (click)='delnote(i)'>X</b>
-                      </div>
-
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
       </div>
-    </div>
+
+
   </div>
-</section>
+
+   <div class="content" id="addVehicle" *ngIf='showBoxes'> 
+      <div class="col-md-12">
+          <div class="fomr_section load_list_view">
+              <h3 class="form_title"> Add Box To <b>{{ShopName}}</b> </h3>
+              <span (click)='reset()' class="cancl">Cancel</span>
+              <form [formGroup]="loadForm" (ngSubmit)="addLoad()">
+                  <div class="row-fluid">
+
+                      <div class="col-md-12">
+                        <h3>Enter Box Details Here</h3>
+
+                          <div class="cards_design">
+                             
+                              <span>
+                                  <input type="text" formControlName="id" class="form-control" placeholder="Enter Box Details"
+                                  [ngClass]="{ 'is-invalid': submitted && f.id.errors }">
+                                  <button class="btn_backk bt" type="button" (click)='addbox()'> Add Box</button>
+                              </span>
+                              <div *ngIf="submitted && f.id.errors" class="invalid-feedback">
+                                  <p class="error-message" *ngIf=" f.id.errors.required">
+                                     Box Detail is required!
+                                  </p>
+                              </div>
+                              <div class="col-md-12" *ngIf='oldboxes.length>0 || boxes.length>0'>
+                                  <p>Added Boxes: </p>
+                                  <ul *ngIf='oldboxes.length>0'>
+                                      <li *ngFor='let ob of oldboxes'>
+                                        <b>{{ob.barcode}}</b>
+                                      </li>
+                                    </ul>
+                                    <ul *ngIf='boxes.length>0'>
+                                      <li *ngFor='let box of boxes; let i = index '>
+                                          <b>{{box.barcode}}</b>
+                                          <a (click)='remove(i)' title="remove"><i
+                                                  class="glyphicon glyphicon-trash"></i></a>
+                                      </li>
+                                  </ul>
+                              </div>
+                          </div>
+                          <div class="col-md-12">
+                          
+                            <div class="cards_design">
+                            <span>
+                               Enter Amount  <input style="width: 100%;" type="text" formControlName="amount" class="form-control" placeholder="Amount"
+                                [ngClass]="{ 'is-invalid': submitted && f.amount.errors }">
+                                
+                            </span>
+                            <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+                                <p class="error-message" *ngIf=" f.amount.errors.required">
+                                   Amount is required!
+                                </p>
+                            </div>
+                        </div>
+
+                          </div>
+                      </div>
+                      <div class="col-md-12">
+                         
+                          <button class="btn_back bt" type="button" (click)='saveBoxes()'> Save Boxes</button>
+
+                      </div>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div> 

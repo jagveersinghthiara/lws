@@ -7,12 +7,12 @@ import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
-    path: 'dispatcher',
+    path: 'buyer',
     component: MainLayoutComponent,
     children: [
       { path: '', component: AddComponent },
       { path: 'add', component: AddComponent },
-      { path: 'view/:type', component: ViewComponent},
+      { path: 'view', component: ViewComponent},
       { path: 'edit/:id', component: EditComponent }
     ]
   }

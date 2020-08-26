@@ -6,3 +6,25 @@ a.disabled {
     pointer-events: none;
    
   }
+
+  .bt{
+    margin: 4px;
+    padding: 10px;
+  }
+  .error-message {
+    color: red;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+span.danger {
+  color: #e01c1c;
+  border: 1px solid;
+  border-radius: 50%;
+  font-size: x-small;
+  cursor: pointer;
+  padding: 0px 2px;
+}
+
+.pdf>.btt {
+  margin-left: 4px;
+}

@@ -9,16 +9,20 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AdminDashboardComponent implements OnInit {
   baseUrl = environment.baseUrl;
-  gloabal: any;
+  gloabal: any =[];
+  invoice: any=[];
   constructor(
     private http: HttpClient,
   ) { 
 
-    // this.http.get(this.baseUrl + 'driverGlobal').subscribe(
-    //   (response: any) => {
-    //     this.gloabal = response.body;
-    //   });
-
+    this.http.get(this.baseUrl + 'admin/adminToteLogs').subscribe(
+      (response: any) => {
+        this.gloabal = response.data;
+      });
+      this.http.get(this.baseUrl + 'admin/adminpaymentLogs').subscribe(
+        (response: any) => {
+          this.invoice = response.data;
+        });
   }
 
   ngOnInit() {

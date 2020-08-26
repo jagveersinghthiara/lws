@@ -327,7 +327,16 @@ a, a:hover{
 	padding: 10px 40px;
 	margin-top: 30px;
 }
-
+.cancel_back {
+	background: #e01c1c;
+	border: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 16px;
+	box-sizing: border-box;
+	padding: 10px 40px;
+	margin-top: 30px;
+}
 .is-invalid {
 	border :1px solid red !important;
 }

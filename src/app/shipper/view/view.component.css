@@ -6,3 +6,29 @@ a.disabled {
     pointer-events: none;
    
   }
+  .glyphicon {
+cursor: pointer;
+  }
+
+  .col-md-12.md {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 35px;
+}
+
+span.cncl {
+  float: right;
+  background: red;
+  padding: 5px;
+  color: #fff;
+  font-weight: 900;
+}
+
+.nf{
+  background: #fff;
+  text-align: center;
+  vertical-align: middle;
+  height: 39px;
+  color: red;
+  padding: 9px;
+}

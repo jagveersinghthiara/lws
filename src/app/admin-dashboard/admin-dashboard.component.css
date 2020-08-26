@@ -106,3 +106,23 @@ li.global {
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+.md{
+    max-height: 700px;
+    overflow: scroll;
+    /* margin-right: 5px; */
+}
+
+span.col-md-12.nf {
+    background: #fff;
+    height: 39px;
+    text-align: center;
+    padding: 10px;
+    margin: 2px;
+}
+
+.ds {
+    border-top: 1px solid;
+    margin-top: 10px;
+    padding-top: 4px;
+}
+  
