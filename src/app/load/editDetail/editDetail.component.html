@@ -1,382 +1,54 @@
 <section>
-    <ngx-spinner
-    bdColor="rgba(51,51,51,0.8)"
-    size="default"
-    color="#fff"
-    type="ball-spin-fade-rotating"
-    bdOpacity = 0.5 >
-    
-  </ngx-spinner>
-  <div class="col-md-9 topspace">
-    <div class="content">
-      <div class="col-md-12">
-        <div class="fomr_section load_list_view">
-          <h3 class="form_title"> Edit Load <b>Fr8-0{{loadId}}</b> </h3>  
-          <form [formGroup]="loadForm" (ngSubmit)="updateLoad()">
-            <div class="row-fluid">
-
-              <div class="col-md-6">
-                <div class="cards_design">
-                  <h2>Shipper Info</h2>
-                  <h3> Shipper
-                    <span>
-                      <select formControlName="customerId" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.customerId.errors }">
-                        <option value="" disabled>Select</option>
-                        <option value="{{customer.id}}" *ngFor='let customer of customerList'>{{customer.name}}</option>
-                      </select>
-                    </span>
-                    <div *ngIf="submitted && f.customerId.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.customerId.errors.required">
-                        Shipper is required!
-                      </p>
-                    </div>
-                  </h3>
-
-                  <h3> BROKER
-                    <span>
-                      <select formControlName="brokerId" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.brokerId.errors }">
-                        <option value="" disabled>Select</option>
-                        <option value="{{broker.id}}" *ngFor='let broker of brokerList'>{{broker.name}}</option>
-                      </select>
-                    </span>
-                    <div *ngIf="submitted && f.brokerId.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.brokerId.errors.required">
-                        Broker is required!
-                      </p>
-                    </div>
-
-                  </h3>
-
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="cards_design">
-                  <h2>Load</h2>
-                  <h3> Term
-                    <span>
-                      <input type="text" formControlName="loadTerm" class="form-control" placeholder="Enter Load Term"
-                        [ngClass]="{ 'is-invalid': submitted && f.loadTerm.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.loadTerm.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.loadTerm.errors.required">
-                        Load Term is required!
-                      </p>
-                    </div>
-                  </h3>
-                  <h3>RPM
-                      <span>
-                        <input type="text" class="form-control" formControlName="rpm" placeholder="Enter RPM"
-                          [ngClass]="{ 'is-invalid': submitted && f.rpm.errors }">
-                      </span>
-                      <div *ngIf="submitted && f.rpm.errors" class="invalid-feedback">
-                        <p class="error-message" *ngIf=" f.rpm.errors.required">
-                          RPM is required!
-                        </p>
-                        <p class="error-message" *ngIf=" f.rpm.errors.pattern">
-                          RPM must be valid!
-                        </p>
-                      </div>
-                    </h3>
-                    <h3>Distance
-                        <span>
-                          <input type="text" class="form-control" formControlName="distance" placeholder="Distance in miles"
-                            [ngClass]="{ 'is-invalid': submitted && f.distance.errors }">
-                        </span>
-                        <div *ngIf="submitted && f.rpm.errors" class="invalid-feedback">
-                          <p class="error-message" *ngIf=" f.distance.errors.required">
-                              Distance is required!
-                          </p>
-                          <p class="error-message" *ngIf=" f.distance.errors.pattern">
-                              Distance must be valid!
-                          </p>
-                        </div>
-                      </h3>
-                </div>
-              </div>
-            </div>
-            <div class="row-fluid">
-              <div class="col-md-6">
-                <div class="cards_design">
-                  <h2>Pickup Info</h2>
-                  <h3>PickUp Address
-                    <span>
-                      <input type="text" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.pickUpAddress.errors }"
-                        formControlName="pickUpAddress" placeholder="Enter pickUp Address">
-                    </span>
-                    <div *ngIf="submitted && f.pickUpAddress.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.pickUpAddress.errors.required">
-                        PickUp Address is required!
-                      </p>
-                    </div>
-                  </h3>
-                  <h3>Origin City
-                    <span>
-                      <input type="text" class="form-control" formControlName="originCity"
-                        placeholder="Enter Origin City" [ngClass]="{ 'is-invalid': submitted && f.originCity.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.originCity.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.originCity.errors.required">
-                        Origin City is required!
-                      </p>
-                    </div>
-                  </h3>
-                  <h3>Origin State
-                    <span>
-                      <input type="text" class="form-control" formControlName="originState"
-                        placeholder="Enter Origin State"
-                        [ngClass]="{ 'is-invalid': submitted && f.originState.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.originState.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.originState.errors.required">
-                        Origin State is required!
-                      </p>
-                    </div>
-                  </h3>
-                  <h3>Origin Zip
-                    <span>
-                      <input type="text" class="form-control" formControlName="originZip" placeholder="Enter Origin Zip"
-                        [ngClass]="{ 'is-invalid': submitted && f.originZip.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.originZip.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.originZip.errors.required">
-                        Origin Zip is required!
-                      </p>
-                    </div>
-                  </h3>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="cards_design">
-                  <h2>Destination Info</h2>
-                  <h3>Drop Address
-                    <span>
-                      <input type="text" formControlName="dropAddress" class="form-control"
-                        placeholder="Enter Drop Address"
-                        [ngClass]="{ 'is-invalid': submitted && f.dropAddress.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.dropAddress.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.dropAddress.errors.required">
-                        Drop Address is required!
-                      </p>
-                    </div>
-                  </h3>
-
-                  <h3>Destination City
-                    <span>
-                      <input type="text" class="form-control" formControlName="destinationCity"
-                        placeholder="Enter Destination City"
-                        [ngClass]="{ 'is-invalid': submitted && f.destinationCity.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.destinationCity.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.destinationCity.errors.required">
-                        Destination City is required!
-                      </p>
-                    </div>
-                  </h3>
-
-                  <h3>Destination State
-                    <span>
-                      <input type="text" class="form-control" formControlName="destinationState"
-                        placeholder="Enter Destination State"
-                        [ngClass]="{ 'is-invalid': submitted && f.destinationState.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.destinationState.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.destinationState.errors.required">
-                        Destination State is required!
-                      </p>
-                    </div>
-                  </h3>
-                  <h3>Destination Zip
-                    <span>
-                      <input type="text" class="form-control" formControlName="destinationZip"
-                        placeholder="Enter Destination Zip"
-                        [ngClass]="{ 'is-invalid': submitted && f.destinationZip.errors }">
-                    </span>
-                    <div *ngIf="submitted && f.destinationZip.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.destinationZip.errors.required">
-                        Destination Zip is required!
-                      </p>
-                      <p class="error-message" *ngIf=" f.originZip.errors.pattern">
-                        Destination Zip must be valid!
-                      </p>
-                    </div>
-                  </h3>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="row-fluid">
-
-              <div class="col-md-6" style="display: none">
-                <div class="form-group">
-                  <label>Equipment</label>
-                  <input type="text" class="form-control" formControlName="equipment" placeholder="Enter Equipment"
-                    [ngClass]="{ 'is-invalid': submitted && f.equipment.errors }">
-                </div>
-                <div *ngIf="submitted && f.equipment.errors" class="invalid-feedback">
-                  <p class="error-message" *ngIf=" f.equipment.errors.required">
-                    Equipment required!
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="row-fluid">
-              <div class="col-md-6">
-                <div class="cards_design">
-                  <h2> Time</h2>
-                  <h3> PickUp
-                    <span>
-                      <input type="text" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" class="form-control"
-                        formControlName="pickUpTime" placeholder="Enter PickUp Time"
-                        [ngClass]="{ 'is-invalid': submitted && f.pickUpTime.errors }">
-                      <owl-date-time #dt1></owl-date-time>
-                    </span>
-                    <div *ngIf="submitted && f.pickUpTime.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.pickUpTime.errors.required">
-                        PickUp Time is required!
-                      </p>
-                    </div>
-                  </h3>
-
-                  <h3> Drop
-                    <span>
-                      <input type="text" class="form-control" [owlDateTime]="dt2" [owlDateTimeTrigger]="dt2"
-                        formControlName="dropTime" placeholder="Enter Drop Time"
-                        [ngClass]="{ 'is-invalid': submitted && f.dropTime.errors }">
-                      <owl-date-time #dt2></owl-date-time>
-                    </span>
-                    <div *ngIf="submitted && f.dropTime.errors" class="invalid-feedback">
-                      <p class="error-message" *ngIf=" f.dropTime.errors.pattern">
-                        Drop Time is required!
-                      </p>
-                    </div>
-                  </h3>
-               
-                </div>
-              </div>
-
-
-              <div class="col-md-6">
-                <div class="cards_design">
-                  <h2> </h2>
-   
-                 
-                  <h3> Previous Documents
-                      <div *ngIf='prevDocs' class="floatRight">
-                        <ul>
-                          <li *ngFor="let file of files ;let i=index" class='li'>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="default"
+  color="#fff"
+  type="ball-spin-fade-rotating"
+  bdOpacity = 0.5 >
   
-                            <b class='floatLeft'>{{i+1}}. </b>
-                            <a target="_blank" href="{{url}}{{file.url}}">
-                              {{file.name}} </a>
-                            <b class='delete' (click)='deleteDoc(i)' title="Delete"> X </b>
-                          </li>
-                        </ul>
-                      </div>
-                    </h3>
-                    <h3>Add Load Documents
-                        <span>
-                          <input type="file" class="form-control" formControlName="file" (change)="fileChangeEvent($event)"
-                            [ngClass]="{ 'is-invalid': submitted && f.file.errors }" multiple>
-                        </span>
-                      </h3>
-                </div>
-              </div>
-            </div>
+</ngx-spinner>
+<div class="col-md-9 topspace">
+  <div class="content">
+    <div class="col-md-12">
+      <div class="fomr_section load_list_view">
+        <h3 class="form_title"> Edit Route</h3>
+        <form [formGroup]="loadForm" (ngSubmit)="updateLoad()">
+          <div class="row-fluid">
 
-            <div class="row-fluid">
-              <div class="rel" formArrayName="items">
-                  <div class="col-md-6">
-                <div *ngFor="let item of loadForm.controls.items.controls; let i=index">
-                  <div class="cards_design" [formGroupName]="i">
-                    <span *ngIf='showCross' class="glyphicon glyphicon-remove-circle cross" (click)=remove(i)></span>
-                    <h2> Item Details </h2>
-                    <h3>Item Name
-                      <span>
-                        <input type="text" class="form-control" formControlName="itemName" placeholder="Enter ItemName"
-                          [ngClass]="{ 'is-invalid': submitted && item.controls.itemName.errors }">
-                      </span>
-                      <div *ngIf="submitted && item.controls.itemName.invalid" class="invalid-feedback">
-                        <p class="error-message" *ngIf=" item.controls.itemName.errors.required">
-                          Item Name is required!
-                        </p>
-                      </div>
-                    </h3>
-                    <h3>Quantity
-                      <span>
-                        <input type="text" class="form-control" formControlName="quantity" placeholder="Enter Quantity"
-                          [ngClass]="{ 'is-invalid': submitted && item.controls.quantity.errors }">
-                      </span>
-                      <div *ngIf="submitted && item.controls.quantity.errors" class="invalid-feedback">
-                        <p class="error-message" *ngIf="item.controls.quantity.errors.required">
-                          Quantity is required!
-                        </p>
-                      </div>
-                      <div *ngIf="submitted && item.controls.quantity.errors" class="invalid-feedback">
-                        <p class="error-message" *ngIf=" item.controls.quantity.errors.pattern">
-                          Quantity must be valid!
-                        </p>
-                      </div>
-                    </h3>
-                    <h3>Weight
-                      <span>
-                        <input type="text" class="form-control" formControlName="weight" placeholder="Enter Weight"
-                          [ngClass]="{ 'is-invalid': submitted && item.controls.weight.errors }">
-                      </span>
-                      <div *ngIf="submitted && item.controls.weight.errors" class="invalid-feedback">
-                        <p class="error-message" *ngIf=" item.controls.weight.errors.required">
-                          Weight is required!
-                        </p>
-                      </div>
-                    </h3>
+            
+            <div class="col-md-12">
+              <div class="cards_design">
+                <h2>Route</h2>
+                <h3>  Name
+                  <span>
+                    <input type="text" formControlName="loadTerm" class="form-control" placeholder="Enter route name"
+                      [ngClass]="{ 'is-invalid': submitted && f.loadTerm.errors }">
+                  </span>
+                  <div *ngIf="submitted && f.loadTerm.errors" class="invalid-feedback">
+                    <p class="error-message" *ngIf=" f.loadTerm.errors.required">
+                      Name is required!
+                    </p>
                   </div>
-
-                </div>
-                <div class="form-group" *ngIf='role != "invoice"'>
-                    <button type="button" class="btn btn-default btn_back" (click)="addItem()"> Add Items
-                    </button>
-                  </div>
-                </div>
-              
-              </div>
-              <div class="col-md-6">
-                  <div class="cards_design">
-                      <h2> Note </h2>
-                    <div class=" chat_page">
-                      <textarea formControlName="note" > </textarea>
-                      <button type='button' (click)='addNotes()' > Add Note </button>
-                    </div>
-                    <div class=" chat_on">
-                    <div class=" chat_list" *ngFor='let note of notes ; let i = index'>
-                        <h5 > {{note.content}}</h5> 
-                        <p> {{note.UserName}}<b>: {{note.UserRole}}</b></p>
-                        <p class="date">{{note.createdAt*1000 |date }}</p> <b class="delete" (click)='delnote(i)'>X</b>
-                      </div>
-                     
-                        </div>
-                        </div>
-              </div>
-            </div>
-
-
-
-            <!-- <div class="row-fluid">
-              <div class="col-md-6">
+                </h3>
                 
+                 
               </div>
-            </div> -->
-            <div class="col-md-12" style="text-align:center;">
-              <button type="submit " class="btn btn-default btn_back">Update</button>
             </div>
-          </form>
-        </div>
+          </div>
+        
+          
+        
+
+         
+
+        
+
+          <div class="col-md-12" style="text-align:center;">
+            <button type="submit " class="btn btn-default btn_back">Update</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 </section>

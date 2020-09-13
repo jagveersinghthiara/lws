@@ -11,11 +11,13 @@
 // };
 export const environment = {
   production: false,
-  baseUrl: 'http://165.227.125.204:3008/Track/',
+  // baseUrl: 'https://trackappjagveer.herokuapp.com/Track/',
+  baseUrl: 'http://localhost:3008/Track/',
+
   htmlImages: '../../../assets/images/',
   // dateFormat: 'YYYY-MM-DD hh:mm a',
   dateFormat: 'YYYY-MM-DD',
-  imagesUrl: 'http://165.227.125.204:3008/Track/',
+  imagesUrl: 'https://trackappjagveer.herokuapp.com/Track/',
 };
 
 /*

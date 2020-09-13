@@ -9,19 +9,19 @@
                     <h3 class="form_title"> Vehicle Detail</h3>
                      <form  [formGroup]="shipperForm" (ngSubmit)="editShipper()">
                      <div class="row-fluid">
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                           <div class="form-group">
                             <label> Vehicle Name </label>
                             <input type="text" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" formControlName="name" placeholder="Enter Vehicle Name">
                           </div>
                           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                             <p class="error-message" *ngIf=" f.name.errors.required">
-                              Vehicle is required!
+                              Vehicle Name is required!
                               </p>
                              
                         </div>
                       </div>
-                      <div class="col-md-6">
+                      <div class="col-md-12">
                           <div class="form-group">
                             <label >Current Kms.</label>
                             <input type="text" class="form-control" formControlName="phone"  placeholder="Enter Current Kms." [ngClass]="{ 'is-invalid': submitted && f.phone.errors }">

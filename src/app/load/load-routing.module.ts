@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'view', component: ViewComponent},
       { path: 'basicEdit/:id', component: EditComponent },
       { path: 'assign/:id', component: AssignComponent },
-      { path: 'editt/:id', component: EditDetailComponent },
+      { path: 'edit/:id', component: EditDetailComponent },
       { path: 'track/:id', component: TrackComponent }
 
 
